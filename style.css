@@ -107,6 +107,9 @@ abbr {
 			margin-right:10px;
 			width:80%;
 }
+.reading-content1-div p {
+	float:left
+}
 font:hover {
 		color:purple
 }
