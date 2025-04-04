@@ -10,6 +10,12 @@ a {
 		flex-direction:column;
 	}
 }
+@media (max-width:800px) {
+	.topnav a {
+		display:flex;
+		flex-shrink:10;
+	}
+}
 .topnav {
 	background-color:#f1f1f1;
 	overflow:hidden;
