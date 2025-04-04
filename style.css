@@ -5,11 +5,6 @@ body {
 a {
   text-decoration:none;
 }
-@media (max-width: 800px) {
-	.topnavpro {
-		flex-direction:column;
-	}
-}
 @media (max-width:800px) {
 	.topnav a {
 		display:flex;
