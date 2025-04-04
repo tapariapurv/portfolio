@@ -31,8 +31,6 @@ a {
         background-color:#f1f1f1;
 	   position:sticky;
 	   top:0;
-	   display:flex;
-	   flex-direction:row;
 }
 .coding-content {
 	 text-align:left;
@@ -108,8 +106,6 @@ abbr {
 			border-right:1 px solid black;
 			margin-right:10px;
 			width:80%;
-			display:flex;
-			flex-wrap:wrap;
 }
 .reading-content1-div p {
 	float:left
