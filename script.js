@@ -1,21 +1,18 @@
 const cacheName = 'dynamic-agent-v1';
 
 const handlePictureInPictureRequest = async event => {
-  if (event.data.type !== 'jf-request-pip-window') {
-    return;
-  }
+  if (event.data.type !== 'jf-request-pip-window') return;
+
   const { url, width, height } = event.data;
-  if ('documentPictureInPicture' in window) {
-    // return if already in picture in picture mode
-    if (window.documentPictureInPicture.window) {
-      return;
-    }
+
+  if ('documentPictureInPicture' in window && !window.documentPictureInPicture.window) {
     const pipWindow = await window.documentPictureInPicture.requestWindow({
       width,
       height,
       disallowReturnToOpener: true
     });
-    // copy styles from main window to pip window
+
+    // Copy styles from main window to pip window
     [...document.styleSheets].forEach(styleSheet => {
       try {
         const cssRules = [...styleSheet.cssRules]
@@ -33,6 +30,7 @@ const handlePictureInPictureRequest = async event => {
         pipWindow.document.head.appendChild(link);
       }
     });
+
     pipWindow.document.body.innerHTML = `<iframe src="${url}" style="width: ${width}px; height: ${height}px;" allow="microphone *; display-capture *;"></iframe>`;
     return { success: true, isActive: false };
   }
@@ -44,14 +42,15 @@ const src = "https://www.jotform.com/s/umd/4f0f5d4aedd/for-embedded-agent.js";
 const script = document.createElement('script');
 script.src = src;
 script.async = true;
-script.onload = function() {
+
+script.onload = function () {
   window.AgentInitializer.init({
     agentRenderURL: "https://www.jotform.com/agent/01977e0b8f9271609e55ab7b7c4a008c1005",
     rootId: "JotformAgent-01977e0b8f9271609e55ab7b7c4a008c1005",
     formID: "01977e0b8f9271609e55ab7b7c4a008c1005",
     contextID: "01977e12003475f3aa8a8b8162b7540cc00a",
     initialContext: "",
-    queryParams: ["skipWelcome=1","maximizable=1","skipWelcome=1","maximizable=1","isNoupeAgent=1"],
+    queryParams: ["skipWelcome=1", "maximizable=1", "isNoupeAgent=1"],
     domain: "https://www.jotform.com",
     isDraggable: false,
     background: "linear-gradient(180deg, #6C73A8 0%, #6C73A8 100%)",
@@ -60,10 +59,21 @@ script.onload = function() {
     inputTextColor: "#01105C",
     variant: false,
     customizations: {
-      inputPlaceholder: "Ask Noupe AI about this website"
+      inputPlaceholder: "Ask AI about this website"
     },
     isVoice: false,
     isVoiceWebCallEnabled: false
   });
+
+  // Fallback: force placeholder if it doesn't render
+  const observer = new MutationObserver(() => {
+    const input = document.querySelector('#JotformAgent-01977e0b8f9271609e55ab7b7c4a008c1005 input');
+    if (input && !input.placeholder) {
+      input.placeholder = "Ask AI about this website";
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
 };
+
 document.head.appendChild(script);
