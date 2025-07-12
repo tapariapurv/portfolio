@@ -1,4 +1,4 @@
-let alert_message = ("Sorry, this page has been deleted")
+alert_message = "Sorry, this page has been deleted"
 alert(alert_message)
 function myFunction() {
     // Declare variables
