@@ -166,9 +166,9 @@ font:hover {
 	float:left;
 	width:310;
 	margin-top:3px;width:75%;
+	border-left:1px solid black;
 }
 .homepage-image-links-div {
-	border-left:1px solid black;
 	float:left;
 	margin-left:10px;
 	margin-top:15px;
