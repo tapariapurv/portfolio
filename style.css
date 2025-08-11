@@ -47,7 +47,7 @@ body {
   #myUL li a:hover:not(.header) {
 	background-color: #78787a; /* Add a hover effect to all links, except for headers */
 }
-.name-header {
+.nameheader {
 	float:left;
 	font-size:25;
 	margin-left:5px;
@@ -55,7 +55,7 @@ body {
 	font-family:Cursive;
 	color:black
 }
-.name-header font:hover {
+.nameheader font:hover {
 	color:black
 }
 a {
