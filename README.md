@@ -1,4 +1,3 @@
-# tapariapurv.github.io
+# :man_technologist: Purv Taparia
 
-## Chess
-### Deleted 6 unused videos as they were replaced with embed links
+<p>
