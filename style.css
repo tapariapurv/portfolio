@@ -2,6 +2,7 @@ body {
     background:#f5f5f5;
   	font-family: "Arial", "sans-serif";
 }
+
 @media screen and (max-width: 600px) {
 	.topnavsearch a, .topnavsearch input[type=text] {
 	  float: none;
@@ -47,6 +48,7 @@ body {
   #myUL li a:hover:not(.header) {
 	background-color: #78787a; /* Add a hover effect to all links, except for headers */
 }
+
 .nameheader {
 	float:left;
 	font-size:25;
@@ -58,30 +60,36 @@ body {
 .nameheader font:hover {
 	color:black
 }
+
 a {
   text-decoration:none;
   color:blue
 }
+
 .topnav {
 	background-color:#f1f1f1;
 	overflow:hidden;
 	float:right;
 }
+
 .topnav a {
 	  float:left;
 	  color:black;
 	  text-align:center;
 	  padding: 14px 16px;
-      font-size:17px;
+    font-size: 17px;
 }
+
 .topnav a:hover {
 		background-color:#ddd;
 		color:black;
 }
+
 .topnav a.active {
 		 background-color:#04AA6D;
 		 color:white;
 }
+
 .topnavpro {
 	   float:left;
 	   width:100%;
@@ -99,6 +107,7 @@ a {
 	 	    width:70%;
             float:left;
 }
+
 .blue-header-content {
 		     color:blue;
 		     font-size:40;
@@ -108,24 +117,29 @@ a {
 .contactme-content-p-1 {
 			float:left;
 }
+
 .homepage-content-paragraph-1 {
 			      color:black;
 }
+
 a:hover {
 	color:purple;
 }
+
 .blue-header-content-secondary {
 	color:blue;
 	font-size:35;
 	float:left;
 	margin-top:20;
 }
+
 .blue-header-content-thirdly {
 	color:blue;
 	font-size:30;
 	float:left;
 	margin-top:20;
 }
+
 .blue-header-content-fourthly {
 	color:blue;
 	font-size:25;
@@ -143,6 +157,7 @@ a:hover {
 	width:100%;
    float:left;
 }
+
 abbr {
 	text-decoration:none;
 }
@@ -158,6 +173,7 @@ abbr {
 						float:left;
 						margin-top:20;	
 }
+
 .reading-content1-div {
 			float:left;
 			border-right:1 px solid black;
@@ -173,15 +189,59 @@ font:hover {
 .homepage-image-links img:hover {
 				color:purple;
 }	
+
 .homepage-content-div {
 	float:left;
 	width:310;
 	margin-top:3px;width:75%;
 }
+
 .homepage-image-links-div {
 	float:left;
 	margin-left:10px;
 	margin-top:15px;
 	border-left:1px solid black;
 	padding-left: 1px;
+}
+.projects-single-project-div {
+    float:left;
+    margin-left:10px;
+    margin-top:10px;
+    padding-left:1%;
+    padding-right:1%;
+    padding-bottom:1%;
+    padding-top:1%;
+    background-color:#a519194c; 
+    border-radius:20px;
+    width:600;
+    height:265;
+}
+.projects-single-project-img {
+    float:left;
+    margin-right:15px;
+    margin-top:4px;
+    padding-left:1%;
+    padding-right:1%;
+    padding-bottom:1%;
+    padding-top:1%;
+    background-color:#a519194c; 
+    border-radius:20px;
+    width:250;
+    height:250;
+}
+.projects-single-project-text-div {
+    float:left;
+    margin-right:15px;
+    margin-top:4px;
+    padding-left:1%;
+    padding-right:1%;
+    padding-bottom:1%;
+    padding-top:1%;
+    background-color:#a519194c; 
+    border-radius:20px;
+    width:250;
+    height:250;
+}
+.projects-single-project-header-text {
+    font-size:xx-large;
 }
