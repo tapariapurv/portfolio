@@ -251,9 +251,9 @@ font:hover {
 
 .homepage-image-links-div {
     float: left;
-    margin-left: 10px;
+    margin-left: 15px;
     margin-top: 15px;
-    border-left: 1px solid black;
+    /* border-left: 1px solid black; */
     padding-left: 1px;
 }
 
@@ -299,4 +299,7 @@ font:hover {
 
 .projects-single-project-header-text {
     font-size: xx-large;
+}
+.profile-img {
+    border-radius:10px;
 }
