@@ -21,6 +21,8 @@ body {
 }
 
 #myInput {
+    background-image: url('path/to/your/search-icon.png');
+    /* Add the path to your search icon */
     background-position: 10px 12px;
     /* Position the search icon */
     background-repeat: no-repeat;
@@ -193,12 +195,32 @@ abbr {
     float: left;
     margin-top: 20;
 }
-
-.blue-header-reading-content-series/anything_else {
+.blue-header-reading-content-series-anything-else {
     color: blue;
     font-size: 25;
     float: left;
     margin-top: 20;
+}
+.social {
+    text-align: center;
+    margin-top: 10px;
+}
+.social-logo {
+    height:1em;
+    width:auto;
+    margin:0 8px;
+    vertical-align: -0.1em;
+}
+.contact-icon a {
+    /* font-size: 24px; */
+    font-size:1.5em;
+    margin: 0 5px;
+    color: #303030;
+    /* color: black; */
+}
+
+.contact-icon a:hover {
+    color: purple;
 }
 
 .reading-content1-div {
