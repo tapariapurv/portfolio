@@ -302,3 +302,12 @@ font:hover {
 .profile-img {
     border-radius:10px;
 }
+.my-books-book-img {
+    border-radius:5px;
+    float:right;
+    width:100;
+    height:auto;
+}
+.my-books-book-paragraph {
+    width:80%;
+}
