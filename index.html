@@ -1,14 +1,257 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=html/home.html">
-    <link rel="icon" href="assets/my-images/My image circular.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purv Taparia | Portfolio</title>
+    <meta name="description" content="Portfolio of Purv Taparia - Student, Coder, Writer.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&family=Space+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 0.9s;
+        }
+        .social-icon {
+            color: inherit;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: var(--accent-blue);
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.6);
+        }
+    </style>
 </head>
 
 <body>
-    <p>Loading the main page... Click <a href="html/home.html">here</a> if you are not redirected automatically.</p>
+    <div id="cursor-glow"></div>
+
+    <header id="navbar">
+        <div class="logo">PURV TAPARIA</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">PURV TAPARIA</h1>
+                <p class="hero-subtitle">Student | Coder | Creative Writer</p>
+                <div class="social-links">
+                    <a href="https://github.com/tapariapurv" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/purv-taparia-220620258/" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:purvtaparia2@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://youtube.com/@purvtaparia" target="_blank" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <a href="#projects" class="cta-button">View Work</a>
+            </div>
+            <div class="hero-visual">
+                <canvas id="hero-canvas"></canvas>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="fade-in">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-text">
+                <p>I am Purv Taparia, a 9-year old student from Class 4 residing in Mumbai, India. I have coded this
+                    portfolio to showcase my technical and creative abilities.</p>
+                <p>I am deeply interested in coding and writing. I am proficient in creative writing and can write
+                    descriptive paragraphs and essays. I am also quite fluent in English and possess a decent vocabulary
+                    and understanding of grammar concepts.</p>
+                <p>I have achieved International Rank 1 in the International English Olympiad conducted by the Science
+                    Olympiad Foundation twice. I also have created many projects on Scratch.</p>
+                <p>I also have many skills in fields such as Artificial Intelligence. I have used AI models such as Veo
+                    3.1 to create production-class videos and models like Nano Banana Pro to create mesmerising images.
+                    I can also use tools from Microsoft Office with ease such as Excel, PowerPoint, Word, etc.</p>
+                <p>Along with this, I can also program in languages such as HTML and CSS and hold some knowledge about
+                    languages such as Python and C++. I also understand simple programming logic such as if, else and
+                    elif conditions and for and while loops. I also know about variables, lists, sets, tuples,
+                    dictionaries, functions, etc.</p>
+
+                <a href="assets/Purv Taparia - Resume.pdf" target="_blank"
+                    class="cta-button" style="margin-top: 20px;">Download My Resume</a>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="fade-in">
+            <h2 class="section-title">Achievements and Certifications</h2>
+            <div class="achievements-grid">
+                <div class="card achievement-card">
+                    <h3>International English Olympiad (IEO)</h3>
+                    <p><strong>International Rank 1</strong> in Grade 1.</p>
+                    <p><strong>School Rank 1</strong> in Grade 2 (39/40).</p>
+                    <p><strong>International Rank 1</strong> in Grade 3 Level 1 (40/40).</p>
+                    <p>Won <strong>Rs. 50,000</strong> in Grade 3 Level 2 for securing 40/40 marks (International Rank
+                        1).</p>
+                </div>
+                <div class="card achievement-card">
+                    <h3>ICSO / National Cyber Olympiad</h3>
+                    <p>International Rank 2 in Grade 3.</p>
+                    <p>Won <strong>Rs. 8,333</strong> (39/40 marks).</p>
+                </div>
+                <div class="card achievement-card">
+                    <h3>Mathematics (IPM)</h3>
+                    <p>Achieved <strong>94th Rank</strong> in the All-India Open Mathematics Scholarship Examination
+                        Mega-Final in Grade 2.</p>
+                </div>
+                <div class="card achievement-card">
+                    <h3>Roller Skating</h3>
+                    <p><strong>3rd Place</strong> in 3rd Mumbai Suburban Roller Athletics District Competition.</p>
+                    <p><strong>5th Place</strong> in 3rd Maharashtra Roller Athletics State Competition.</p>
+                    <p><strong>5th Place</strong> in 3rd Roller Athletics National Competition.</p>
+                </div>
+                <div class="card achievement-card">
+                    <h3>Arduino Junior Certification</h3>
+                    <p><strong>Passed</strong> Arduino Junior Certification exam with <strong>96%</strong>.</p>
+                    <p>Download certification proof <a href="assets\Arduino Junior Certification.pdf" target="_blank"><strong>here</strong></a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="fade-in">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="card project-card" data-tilt>
+                    <div class="card-content">
+                        <h3>Rapid Games</h3>
+                        <p class="date">October 2025</p>
+                        <p>A free online gaming platform featuring a hand-picked collection of browser games curated
+                            from top sites like CrazyGames.com and Poki.com. It offers an extensive variety of action,
+                            puzzle, sports, and racing games. The site prioritizes simplicity, speed, and fun, providing
+                            an intuitive search function.</p>
+                        <p>Built with passion and dedication by developers Purv (Me), Ridit, and Devansh.</p>
+                        <a href="https://tapariapurv.github.io/rapidgames" target="_blank" class="link-text">View
+                            Project &rarr;</a>
+                    </div>
+                </div>
+                <div class="card project-card" data-tilt>
+                    <div class="card-content">
+                        <h3>My Portfolio</h3>
+                        <p class="date">March 2025</p>
+                        <p>This comprehensive personal hub showcases my academic achievements, creative works, and
+                            technical projects. Built using HTML and CSS, it features an intuitive navigation menu,
+                            achievement documentation, and a showcase of my books and skills.</p>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Books Section -->
+        <section id="books" class="fade-in">
+            <h2 class="section-title">Published Books</h2>
+            <div class="books-grid">
+                <div class="card book-card">
+                    <h3>Dubai and a Futuristic City</h3>
+                    <p>This book has 2 sections: the first is about when me and my friends get teleported to Dubai while
+                        playing hide and seek, and the second is when I get teleported to a futuristic city alone.</p>
+                    <a href="https://www.bribooks.com/bookstore/dubai-and-a-futuristic-city" target="_blank"
+                        class="link-text">Read on Bribooks &rarr;</a>
+                </div>
+                <div class="card book-card">
+                    <h3>The Tour to DigiDream</h3>
+                    <p>An educational book that teaches readers about devices such as air conditioners, smartphones, and
+                        AI assistants like Gemini.</p>
+                    <a href="https://bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia" target="_blank"
+                        class="link-text">Read on Bribooks &rarr;</a>
+                </div>
+                <div class="card book-card">
+                    <h3>Five Stories by Purv Taparia</h3>
+                    <p>Includes five stories written by me. Some are about beaches, a picnic, a magical carpet, etc. One
+                        of my first proper books.</p>
+                    <a href="https://www.bribooks.com/bookstore/five-stories-by-purv-taparia" target="_blank"
+                        class="link-text">Read on Bribooks &rarr;</a>
+                </div>
+                <div class="card book-card">
+                    <h3>Graduation Day</h3>
+                    <p>My first book. It is about a graduation day of a person who happens to win student of the year
+                        too.</p>
+                    <a href="https://www.bribooks.com/bookstore/graduation-day-6479ed2fbb7fb/" target="_blank"
+                        class="link-text">Read on Bribooks &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="fade-in">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-wrapper">
+                <div class="skill-category">
+                    <h3>Robotics & Coding</h3>
+                    <p>I have learnt how to make LEDs (Light Emitting Diodes) light up using a bread board, single LEDs,
+                        a Micro-Bit, a Micro-Bit breakout board, a power cable and a few male to female wires.</p>
+                    <p>I know block coding, Python (basics), HTML, CSS, and some Javascript. I have made innumerable
+                        projects
+                        on Scratch that use variables and logic.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Microsoft Office</h3>
+                    <p><strong>Excel:</strong> I can use formulas/functions (SUM, IF), Record Macros, conditional
+                        formatting, Text to Columns, Freeze Panes, etc.</p>
+                    <p><strong>PowerPoint:</strong> I can create presentations using Excel Tables, Shapes, transitions,
+                        animations, and links.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Artificial Intelligence</h3>
+                    <p>I use AI for making Excel files, PowerPoint presentations, and generating paragraphs/essays. I
+                        have experience with tools like Veo 3.1 for video and Nano Banana Pro for images.</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Creative Writing</h3>
+                    <p>I can write descriptive stories, essays, and paragraphs using proper grammar, and descriptive
+                        words and vocabulary.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="fade-in">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <p>Feel free to reach out for collaborations or just to say hi!</p>
+                <br>
+                <a href="mailto:purvtaparia2@gmail.com?subject=Reaching%20Out&body=Hi%20Purv%2C%0A%0AI%20found%20you%20on%20your%20portfolio%20website%20and%20I%20would%20like%20to%20talk%20to%20you"
+                    class="cta-button">Email Me</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Purv Taparia. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 
 </html>
