@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purv Taparia - One Page Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. VARIABLES & THEME SETUP
+           ========================================= */
+        /* --- PRINT SETTINGS --- */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                background: white;
+                width: 100%;
+                height: 100%;
+                padding: 10mm;
+                display: grid;
+            }
+
+            .info-card,
+            .entry,
+            .exploration-interests,
+            .summary {
+                background: none !important;
+                border: 1px solid #ddd !important;
+                /* Retains border definition */
+                color: black !important;
+            }
+
+            /* ... other print styles ... */
+        }
+        
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --accent-blue: #00f3ff;
+            --accent-green: #00ff9d;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+
+            --font-main: "M PLUS Rounded 1c", "Avenir", "Nunito", sans-serif;
+
+            /* Tighter Radius */
+            --radius-main: 12px;
+            --radius-sm: 6px;
+        }
+
+        /* --- RESET & GLOBAL --- */
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            letter-spacing: 0.2px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-blue);
+            transition: color 0.2s;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: var(--accent-green);
+        }
+
+        /* --- THE PAGE FRAME (Single A4 Page) --- */
+        .page {
+            background: var(--bg-secondary);
+            width: 210mm;
+            height: 297mm;
+            /* Fixed Height for A4 */
+            padding: 10mm 12mm;
+            /* Reduced Padding */
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+            display: grid;
+            grid-template-columns: 28% 1fr;
+            /* Slightly narrower sidebar */
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+            /* Ensures it stays one page visually */
+        }
+
+        /* --- LEFT COLUMN (SIDEBAR) --- */
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            /* Reduced gap */
+        }
+
+        .profile-frame {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: var(--radius-main);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--accent-blue);
+            margin-bottom: 5px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border-radius: var(--radius-main);
+            padding: 15px;
+            /* Compact Padding */
+            height: fit-content;
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(5px);
+        }
+
+        .info-section {
+            margin-bottom: 15px;
+            /* Reduced Margin */
+        }
+
+        .info-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--accent-green);
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+            color: var(--accent-green);
+            font-weight: 800;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-size: 11.5px;
+            /* Smaller Font */
+            line-height: 1.3;
+            color: var(--text-secondary);
+        }
+
+        .info-row span {
+            font-size: 14px;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        .info-row a {
+            color: var(--text-primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            padding: 4px 8px;
+            border-radius: 50px;
+            font-size: 10px;
+            /* Smaller Tag Text */
+            border: 1px solid var(--card-border);
+            font-weight: 500;
+        }
+
+        /* --- RIGHT COLUMN (MAIN CONTENT) --- */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Adjusted header to align with profile image top */
+        .header {
+            margin-bottom: 15px;
+            margin-top: 0;
+            padding-top: 5px;
+            /* Fine-tune alignment */
+        }
+
+        h1 {
+            font-size: 32px;
+            /* Reduced for single page fit */
+            margin: 0;
+            color: var(--accent-blue);
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+        }
+
+        .role {
+            font-size: 14px;
+            color: var(--accent-green);
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .summary {
+            font-size: 11.5px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 15px;
+            background: rgba(0, 255, 157, 0.05);
+            padding: 10px 15px;
+            border-radius: var(--radius-main);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            text-align: justify;
+        }
+
+        .section-header {
+            font-size: 18px;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            margin-top: 5px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        /* Compact Entry Box */
+        .entry {
+            margin-bottom: 10px;
+            /* Tight spacing */
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-main);
+            padding: 10px 14px;
+            transition: transform 0.2s;
+        }
+
+        .entry:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .entry-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .entry-title {
+            font-weight: 800;
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+
+        .entry-sub {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--accent-green);
+            background: rgba(0, 255, 157, 0.1);
+            padding: 2px 6px;
+            border-radius: 8px;
+        }
+
+        .entry-desc {
+            font-size: 11px;
+            line-height: 1.4;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .exploration-interests {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-main);
+            padding: 10px 14px;
+            font-size: 11px;
+            line-height: 1.4;
+            color: var(--text-secondary);
+        }
+
+        /* --- PRINT SETTINGS --- */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                background: white;
+                width: 100%;
+                height: 100%;
+                padding: 10mm;
+                display: block;
+                /* Changes grid to block for safer printing if needed, or keep grid */
+                display: grid;
+            }
+
+            .info-card,
+            .entry,
+            .exploration-interests,
+            .summary {
+                background: none !important;
+                border: 1px solid #ddd !important;
+                color: black !important;
+            }
+
+            .profile-frame {
+                border-color: #000;
+            }
+
+            h1 {
+                color: black !important;
+                text-shadow: none !important;
+            }
+
+            .info-title,
+            .role,
+            .entry-sub,
+            a {
+                color: #000 !important;
+                font-weight: bold !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <div class="left-col">
+
+            <div class="profile-frame">
+                <img src="https://tapariapurv.github.io/old-portfolio/assets/my-images/My%20image.jpg"
+                    alt="Purv Taparia" class="profile-img">
+            </div>
+
+            <div class="info-card">
+                <div class="info-section">
+                    <div class="info-title">Social</div>
+                    <div class="info-row"><span>📞</span> <a href="tel:+918433501586">+91 8433501586</a></div>
+                    <div class="info-row"><span>📧</span> <a
+                            href="mailto:purvtaparia2@gmail.com">purvtaparia2@gmail.com</a></div>
+                    <div class="info-row"><span>🔗</span> <a href="https://tapariapurv.github.io"
+                            target="_blank">tapariapurv.github.io</a></div>
+                    <div class="info-row"><span>🐙</span> <a href="https://github.com/tapariapurv"
+                            target="_blank">@tapariapurv</a></div>
+                    <div class="info-row"><span>💼</span> <a href="https://linkedin.com/in/purv-taparia-220620258"
+                            target="_blank">LinkedIn</a></div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Skills</div>
+                    <div class="skill-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Scratch</span>
+                        <span class="tag">Creative Writing</span>
+                        <span class="tag">Prompt Eng.</span>
+                        <span class="tag">UX Design</span>
+                        <span class="tag">MS Office</span>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">AI Mastery</div>
+                    <div class="info-row">🤖 ChatGPT, Gemini, Copilot</div>
+                    <div class="info-row">🎥 Veo 3.1 (Video)</div>
+                    <div class="info-row">🎨 Nano Banana Pro (Art)</div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Education</div>
+                    <div style="font-size:12px; font-weight:700; margin-bottom:2px; color:var(--text-primary);">
+                        Chatrabhuj Narsee School</div>
+                    <div style="font-size:11px; color:var(--text-secondary);">Nursery - Grade 4</div>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Languages</div>
+                    <div class="info-row" style="color:var(--text-primary);">English (Fluent)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-col">
+
+            <div class="header">
+                <h1>Purv Taparia</h1>
+                <div class="role">Student Developer & Creative Writer <span
+                        style="font-weight:400; font-size:12px; opacity:0.7;">| Age: 9</span></div>
+            </div>
+
+            <div class="summary">
+                I am a precocious student with 9 years of life experience. I have programmed a <a
+                    href="https://tapariapurv.github.io">personal portfolio website</a> that blends logic with visual
+                design. I utilize advanced AI models to double my productivity, create content, and learn new concepts.
+                I am a fluent English speaker and write descriptively with ease. I have a zest for technology, sales,
+                marketing, and investing.
+            </div>
+
+            <div class="section-header">🏆 Key Achievements</div>
+
+            <div class="entry">
+                <div class="entry-top">
+                    <span class="entry-title">🥇 International Rank 1 (Top Scorer)</span>
+                    <span class="entry-sub">Grade 3</span>
+                </div>
+                <div class="entry-desc">
+                    SOF International English Olympiad (IEO). Achieved Rank 1 twice. <b>Earned ₹50,000</b>.
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-top">
+                    <span class="entry-title">🥈 International Rank 2</span>
+                    <span class="entry-sub">Grade 3</span>
+                </div>
+                <div class="entry-desc">
+                    SOF International Computer Science Olympiad (ICSO).
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-top">
+                    <span class="entry-title">📚 Published Author</span>
+                    <span class="entry-sub">BriBooks</span>
+                </div>
+                <div class="entry-desc">
+                    Wrote 4+ books including <i>"Dubai and a Futuristic City"</i> and <i>"The Tour to Digidream"</i>.
+                </div>
+            </div>
+
+            <div class="section-header">🚀 Projects & Experience</div>
+
+            <div class="entry">
+                <div class="entry-top">
+                    <span class="entry-title">🌐 Personal Portfolio Website</span>
+                    <span class="entry-sub">GitHub Pages</span>
+                </div>
+                <div class="entry-desc">
+                    Designed a colorful, visual website. Implemented HTML/CSS to create scroll effects, placeholder
+                    logic, and engaging sections.
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-top">
+                    <span class="entry-title">🤖 AI Content Production</span>
+                    <span class="entry-sub">AI Tools</span>
+                </div>
+                <div class="entry-desc">
+                    Utilized advanced models (Veo 3.1, Imagen 4) to generate high-quality video and image content.
+                    Applied LLMs for research.
+                </div>
+            </div>
+
+            <div class="entry">
+                <div class="entry-top">
+                    <span class="entry-title">🎮 Rapid Games</span>
+                    <span class="entry-sub">Scratch</span>
+                </div>
+                <div class="entry-desc">
+                    Contributed significantly to a gaming platform known as <a
+                        href="https://tapariapurv.github.io/rapidgames" target="_blank">'Rapid Games'</a>.
+                </div>
+            </div>
+
+            <div class="section-header">💡 Exploration Interests</div>
+            <div class="exploration-interests">
+                Artificial Intelligence (LLMs) • Stock Market Analysis • Business Case Studies • Chess (1000+ ELO on
+                lichess.org)
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
