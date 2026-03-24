@@ -328,6 +328,56 @@ section {
     display: inline-block;
 }
 
+/* About Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.about-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.about-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.about-divider {
+    border: none;
+    border-top: 1px solid var(--card-border);
+    margin: 0 0 16px;
+}
+
+.about-list {
+    list-style: none;
+    margin-top: 8px;
+}
+
+.about-list li {
+    color: var(--text-secondary);
+    padding: 4px 0 4px 22px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.about-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+}
+
+.about-resume {
+    text-align: center;
+    margin-top: 10px;
+}
+
 /* Skills */
 .skills-wrapper {
     display: flex;
@@ -401,6 +451,9 @@ footer {
    7. RESPONSIVE
    ========================================= */
 @media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
     .hero-title { font-size: 4rem; }
     .hero-visual {
         width: 100%;
