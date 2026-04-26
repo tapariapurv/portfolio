@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purv Taparia - Resume</title>
+  <style>
+    :root {
+      --paper: #ffffff;
+      --ink: #101423;
+      --muted: #4d566f;
+      --line: #dde3f2;
+      --accent: #4f46e5;
+      --accent-soft: #eef0ff;
+      --squircle: 24px;
+      --shadow: 0 10px 24px rgba(16, 20, 35, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    @page {
+      size: A4;
+      margin: 10mm;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f5f7fb;
+      color: var(--ink);
+      font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.45;
+    }
+
+    body {
+      padding: 16px;
+    }
+
+    .resume {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 12mm;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .squircle {
+      border: 1px solid var(--line);
+      border-radius: var(--squircle);
+      padding: 14px;
+      background: #fff;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, #f7f8ff 0%, #ffffff 80%);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .headline {
+      margin: 8px 0 0;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 15px;
+    }
+
+    .summary {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .contact-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .contact-list a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .contact-list a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .chip {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: #283046;
+      background: var(--accent-soft);
+      border: 1px solid #d9ddff;
+      border-radius: 999px;
+      padding: 5px 10px;
+      white-space: nowrap;
+    }
+
+    .item {
+      margin-bottom: 10px;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item h3 {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 11px;
+      margin: 2px 0 0;
+    }
+
+    .item p,
+    .item ul {
+      margin: 5px 0 0;
+      font-size: 12px;
+      color: #2c3448;
+    }
+
+    .item ul {
+      padding-left: 16px;
+    }
+
+    .projects {
+      grid-column: 1 / -1;
+    }
+
+    .projects .item {
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .projects .item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: #fff;
+      }
+
+      .resume {
+        width: 100%;
+        min-height: auto;
+        border: 0;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="resume">
+    <header class="top">
+      <section class="squircle hero">
+        <h1>Purv Taparia</h1>
+        <p class="headline">Student | Coder | Creative Writer</p>
+        <p class="summary">
+          Curious young builder with strengths in coding, AI-assisted creation, robotics, and storytelling. Known for top international Olympiad performance, published books, and hands-on projects spanning web, electronics, and productivity tools.
+        </p>
+      </section>
+
+      <section class="squircle">
+        <h2 class="section-title">📧 Contact</h2>
+        <ul class="contact-list">
+          <li>📍 Mumbai, India</li>
+          <li>📧 <a href="mailto:purvtaparia2@gmail.com">purvtaparia2@gmail.com</a></li>
+          <li>💼 <a href="https://www.linkedin.com/in/purv-taparia/">linkedin.com/in/purv-taparia</a></li>
+          <li>💻 <a href="https://github.com/tapariapurv">github.com/tapariapurv</a></li>
+          <li>🎬 <a href="https://youtube.com/@purvtaparia">youtube.com/@purvtaparia</a></li>
+        </ul>
+      </section>
+    </header>
+
+    <main class="grid">
+      <section class="squircle">
+        <h2 class="section-title">🛠️ Skills</h2>
+        <div class="chips">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript (Basics)</span>
+          <span class="chip">Python (Basics)</span>
+          <span class="chip">C++</span>
+          <span class="chip">Scratch</span>
+          <span class="chip">Arduino</span>
+          <span class="chip">Micro:bit</span>
+          <span class="chip">AI Tools</span>
+          <span class="chip">Excel</span>
+          <span class="chip">PowerPoint</span>
+          <span class="chip">Creative Writing</span>
+        </div>
+      </section>
+
+      <section class="squircle">
+        <h2 class="section-title">🚀 Achievements</h2>
+        <div class="item">
+          <h3>International English Olympiad (SOF)</h3>
+          <p class="meta">International Rank 1 in Grade 1 and Grade 3 Level 1 (40/40), plus School Rank 1 in Grade 2.</p>
+        </div>
+        <div class="item">
+          <h3>National Cyber Olympiad / ICSO</h3>
+          <p class="meta">International Rank 2 in Grade 3 (39/40).</p>
+        </div>
+        <div class="item">
+          <h3>Roller Athletics Competitions</h3>
+          <p class="meta">District 3rd place, State 5th place, and National 5th place.</p>
+        </div>
+        <div class="item">
+          <h3>Certifications</h3>
+          <p class="meta">Arduino Junior Certification (96%) and Anthropic Academy Claude 101.</p>
+        </div>
+      </section>
+
+      <section class="squircle projects">
+        <h2 class="section-title">💼 Projects</h2>
+        <div class="item">
+          <h3>Rapid Games</h3>
+          <p class="meta">October 2025</p>
+          <p>Built a free browser-gaming platform with curated game discovery and streamlined search for fast, simple play.</p>
+        </div>
+        <div class="item">
+          <h3>Neo-Pixel Game</h3>
+          <p class="meta">January 2026</p>
+          <p>Created an Arduino-powered 8x8 Neo-Pixel game with piezo audio and custom 3D-printed enclosure.</p>
+        </div>
+        <div class="item">
+          <h3>Air Quality Monitor</h3>
+          <p class="meta">November 2025</p>
+          <p>Engineered a portable monitor using MQ135 sensor, OLED display, Arduino Nano, and battery-backed 3D-printed hardware.</p>
+        </div>
+        <div class="item">
+          <h3>LiteWarden (Work in Progress)</h3>
+          <p class="meta">January 2026</p>
+          <p>Developing a local-first Chrome extension for password management with secure in-browser storage.</p>
+        </div>
+      </section>
+
+      <section class="squircle">
+        <h2 class="section-title">🎓 Education</h2>
+        <div class="item">
+          <h3>Primary School Student (Class 4)</h3>
+          <p class="meta">Mumbai, India</p>
+        </div>
+      </section>
+
+      <section class="squircle">
+        <h2 class="section-title">✍️ Writing & Publications</h2>
+        <div class="item">
+          <h3>Published Author (Bribooks)</h3>
+          <ul>
+            <li>Dubai and a Futuristic City</li>
+            <li>The Tour to DigiDream</li>
+            <li>Five Stories by Purv Taparia</li>
+            <li>Graduation Day</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </article>
+</body>
+</html>
