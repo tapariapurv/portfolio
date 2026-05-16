@@ -1,314 +1,1230 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purv Taparia | Portfolio</title>
-    <meta name="description" content="Portfolio of Purv Taparia - Student, Coder, Writer.">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&family=Space+Mono&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <meta name="google-site-verification" content="xqLbD-xd9Cr2sTsCRxFxg-c19b-M6SnRkDD3pZVQEzs" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purv Taparia | Portfolio</title>
+  <meta name="description" content="Portfolio of Purv Taparia — Student, Coder, and Creative Writer from Mumbai, India." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23080a0f'/%3E%3Crect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2300e6be' stroke-width='1' stroke-opacity='0.35'/%3E%3Ctext x='16' y='23' font-family='Arial Black%2C sans-serif' font-weight='900' font-size='19' fill='%2300e6be' text-anchor='middle' letter-spacing='-1'%3EP%3C/text%3E%3Ccircle cx='23' cy='10' r='2.5' fill='%2300e6be' opacity='0.7'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────────── */
+    :root {
+      --bg:        #080a0f;
+      --bg2:       #0d1117;
+      --bg3:       #111620;
+      --surface:   #141b27;
+      --border:    rgba(255,255,255,0.07);
+      --glow:      rgba(0,230,190,0.28);
+
+      --text:      #e8edf5;
+      --text2:     #aab4c6;
+      --text3:     #6b7d95;
+
+      --accent:    #00e6be;
+      --adim:      rgba(0,230,190,0.10);
+      --aglow:     rgba(0,230,190,0.32);
+      --gold:      #f5c842;
+      --gdim:      rgba(245,200,66,0.11);
+      --coral:     #ff6b6b;
+
+      --r:    12px;
+      --rl:   20px;
+      --rxl:  28px;
+
+      --ff:   'Syne', sans-serif;
+      --fm:   'DM Mono', monospace;
+      --fs:   'Instrument Serif', serif;
+
+      --ease: cubic-bezier(0.16,1,0.3,1);
+      --spring: cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    /* ── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+      cursor: none;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    button { cursor: none; font-family: inherit; border: none; background: none; }
+    ::selection { background: var(--accent); color: var(--bg); }
+    img, svg { display: block; max-width: 100%; }
+
+    /* ── CUSTOM CURSOR ──────────────────────────────────────── */
+    #cur {
+      position: fixed; z-index: 9999;
+      width: 9px; height: 9px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%,-50%);
+      mix-blend-mode: screen;
+      transition: width .18s var(--ease), height .18s var(--ease), background .18s;
+    }
+    #cur-ring {
+      position: fixed; z-index: 9998;
+      width: 34px; height: 34px;
+      border: 1.5px solid rgba(0,230,190,.38);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%,-50%);
+      transition: width .28s var(--ease), height .28s var(--ease), border-color .28s;
+    }
+    body.hov #cur { width: 5px; height: 5px; background: var(--gold); }
+    body.hov #cur-ring { width: 50px; height: 50px; border-color: var(--gold); }
+
+    /* ── SCROLL PROGRESS ────────────────────────────────────── */
+    #sprog {
+      position: fixed; top: 0; left: 0; height: 2px;
+      background: var(--accent);
+      z-index: 9000; width: 0;
+      box-shadow: 0 0 8px var(--aglow);
+    }
+
+    /* ── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 800;
+      padding: 16px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background .35s, border-color .35s;
+    }
+    nav.stuck {
+      background: rgba(8,10,15,.88);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--ff); font-weight: 800; font-size: 16px;
+      letter-spacing: -.02em; color: var(--text);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      font-family: var(--fm); font-size: 11.5px; letter-spacing: .08em;
+      color: var(--text2); position: relative; transition: color .2s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 1px; background: var(--accent);
+      transform: scaleX(0); transform-origin: right;
+      transition: transform .3s var(--ease);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .nav-cta {
+      font-family: var(--fm); font-size: 11.5px; letter-spacing: .08em;
+      color: var(--accent); border: 1px solid var(--glow);
+      padding: 7px 18px; border-radius: 6px;
+      transition: background .2s, color .2s;
+    }
+    .nav-cta:hover { background: var(--accent); color: var(--bg); }
+    .nav-ham { display: none; flex-direction: column; gap: 5px; }
+    .nav-ham span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: .3s; }
+
+    /* ── LAYOUT ─────────────────────────────────────────────── */
+    section { position: relative; z-index: 2; }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
+
+    /* ── SECTION LABEL ──────────────────────────────────────── */
+    .slabel {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--fm); font-size: 10.5px; letter-spacing: .14em;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 18px;
+    }
+    .slabel::before {
+      content: ''; display: block; width: 22px; height: 1px; background: var(--accent);
+    }
+
+    /* ── HERO ───────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr auto;
+      align-items: center; gap: 56px;
+      padding: 88px 0 0;
+      position: relative; overflow: hidden;
+    }
+    .hero-l { padding-left: 48px; }
+    .hero-name {
+      font-family: var(--ff); font-weight: 800;
+      font-size: clamp(52px,7vw,86px);
+      line-height: .93; letter-spacing: -.04em; color: var(--text);
+      animation: fsu .9s var(--ease) .2s both;
+    }
+    .hero-name em {
+      font-family: var(--fs); font-style: italic;
+      font-weight: 400; color: var(--accent);
+    }
+    .hero-sub {
+      font-family: var(--fm); font-size: 12.5px; letter-spacing: .04em;
+      color: var(--text2); margin-top: 18px; margin-bottom: 28px;
+      animation: fsu .9s var(--ease) .3s both;
+    }
+    .hero-desc {
+      font-size: 15.5px; color: var(--text2); max-width: 470px;
+      line-height: 1.78; margin-bottom: 38px;
+      animation: fsu .9s var(--ease) .4s both;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 600; }
+    .hero-ctas {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      animation: fsu .9s var(--ease) .5s both;
+    }
+    .btn-p {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: var(--bg);
+      font-family: var(--fm); font-size: 11.5px; font-weight: 500;
+      letter-spacing: .08em; padding: 13px 26px; border-radius: 8px;
+      transition: transform .2s var(--spring), box-shadow .3s;
+    }
+    .btn-p:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,230,190,.28); }
+    .btn-g {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border); color: var(--text2);
+      font-family: var(--fm); font-size: 11.5px; letter-spacing: .08em;
+      padding: 13px 26px; border-radius: 8px;
+      transition: border-color .2s, color .2s, transform .2s var(--spring);
+    }
+    .btn-g:hover { border-color: var(--glow); color: var(--accent); transform: translateY(-2px); }
+
+    /* Social icons in hero */
+    .hero-socials {
+      display: flex; gap: 6px; margin-top: 40px;
+      animation: fsu .9s var(--ease) .6s both;
+    }
+    .hero-socials a {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: var(--text2);
+      transition: color .25s, background .25s, box-shadow .3s, transform .25s var(--spring);
+    }
+    .hero-socials a:hover { transform: translateY(-4px) scale(1.1); }
+    .s-gh:hover  { color:#fff;     background:rgba(255,255,255,.07); box-shadow:0 0 18px rgba(255,255,255,.22),0 0 36px rgba(255,255,255,.08); }
+    .s-li:hover  { color:#0A66C2;  background:rgba(10,102,194,.1);   box-shadow:0 0 18px rgba(10,102,194,.45),0 0 36px rgba(10,102,194,.18); }
+    .s-yt:hover  { color:#FF0000;  background:rgba(255,0,0,.08);     box-shadow:0 0 18px rgba(255,0,0,.38),0 0 36px rgba(255,0,0,.13); }
+    .s-em:hover  { color:var(--accent); background:var(--adim);      box-shadow:0 0 18px var(--aglow),0 0 36px rgba(0,230,190,.09); }
+
+    /* Hero right — stat cards */
+    .hero-r {
+      position: relative; display: flex; flex-direction: column; gap: 14px;
+      padding-right: 48px;
+      animation: fsu 1s var(--ease) .3s both;
+    }
+    .hero-orb {
+      position: absolute; top: -60px; right: -80px;
+      width: 380px; height: 380px; border-radius: 50%;
+      background: radial-gradient(circle,rgba(0,230,190,.07) 0%,transparent 70%);
+      pointer-events: none;
+    }
+    .hcard {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--rl); padding: 20px 24px;
+      display: flex; align-items: center; gap: 16px;
+      transition: border-color .3s, transform .4s var(--spring), box-shadow .4s;
+      position: relative; overflow: hidden;
+    }
+    .hcard-shine {
+      position: absolute; inset: 0; border-radius: inherit;
+      background: radial-gradient(circle at 50% 50%,rgba(0,230,190,.13) 0%,transparent 65%);
+      opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 0;
+    }
+    .hcard > * { position: relative; z-index: 1; }
+    .hcard:hover { border-color: var(--glow); }
+    .hcard-ico {
+      font-size: 26px; width: 48px; height: 48px;
+      background: var(--bg3); border-radius: 11px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .hcard-lbl {
+      font-family: var(--fm); font-size: 9.5px; letter-spacing: .1em;
+      color: var(--text2); text-transform: uppercase; margin-bottom: 3px;
+    }
+    .hcard-val {
+      font-family: var(--ff); font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.2;
+    }
+    .hcard-val span { color: var(--accent); }
+
+    /* Scroll down button */
+    #scrolldown {
+      grid-column: 1 / -1;
+      display: flex; flex-direction: column; align-items: center; gap: 7px;
+      justify-self: center; align-self: end;
+      padding-bottom: 12px;
+      cursor: none; z-index: 10; animation: fsu 1.2s var(--ease) 1s both;
+    }
+    #scrolldown span {
+      font-family: var(--fm); font-size: 9.5px; letter-spacing: .14em;
+      color: var(--text2); text-transform: uppercase;
+    }
+    .sd-arrow {
+      width: 34px; height: 34px; border: 1.5px solid rgba(0,230,190,.35); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; color: var(--accent);
+      animation: bounce 2s ease-in-out infinite;
+      transition: border-color .2s, color .2s, box-shadow .2s;
+    }
+    #scrolldown:hover .sd-arrow { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 14px var(--aglow); }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+    /* ── MARQUEE ────────────────────────────────────────────── */
+    .mq-wrap {
+      overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 13px 0; background: var(--bg2); position: relative; z-index: 3;
+    }
+    .mq-track {
+      display: flex; gap: 44px; width: max-content;
+      animation: marquee 22s linear infinite;
+    }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .mq-item {
+      display: flex; align-items: center; gap: 12px;
+      font-family: var(--fm); font-size: 10.5px; letter-spacing: .1em;
+      color: var(--text2); text-transform: uppercase; white-space: nowrap;
+    }
+    .mq-dot { color: var(--accent); font-size: 14px; }
+
+    /* ── ABOUT ──────────────────────────────────────────────── */
+    #about { padding: 110px 0; }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start;
+    }
+    .about-hl {
+      font-family: var(--ff); font-size: clamp(36px,4.5vw,54px);
+      font-weight: 800; line-height: 1.05; letter-spacing: -.03em;
+      color: var(--text); margin-bottom: 24px;
+    }
+    .about-hl em { font-family: var(--fs); font-style: italic; color: var(--accent); font-weight: 400; }
+    .about-body { color: var(--text2); font-size: 15px; line-height: 1.82; }
+    .about-body p+p { margin-top: 16px; }
+    .about-body strong { color: var(--text); font-weight: 600; }
+    .stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 40px;
+    }
+    .stat {
+      background: var(--surface); border: 1px solid var(--border); padding: 20px;
+      transition: border-color .3s;
+    }
+    .stat:first-child  { border-radius: var(--r) 0 0 0; }
+    .stat:nth-child(2) { border-radius: 0 var(--r) 0 0; }
+    .stat:nth-child(3) { border-radius: 0 0 0 var(--r); }
+    .stat:last-child   { border-radius: 0 0 var(--r) 0; }
+    .stat:hover { border-color: var(--glow); z-index: 1; }
+    .stat-n {
+      font-family: var(--ff); font-size: 34px; font-weight: 800;
+      letter-spacing: -.04em; color: var(--accent); line-height: 1; margin-bottom: 5px;
+    }
+    .stat-l { font-family: var(--fm); font-size: 10.5px; letter-spacing: .06em; color: var(--text2); text-transform: uppercase; }
+
+    /* Skills chips */
+    .about-r { padding-top: 52px; }
+    .sg { margin-bottom: 30px; }
+    .sg-title { font-family: var(--fm); font-size: 10.5px; letter-spacing: .1em; color: var(--text2); text-transform: uppercase; margin-bottom: 12px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 6px;
+      padding: 5px 11px; font-family: var(--fm); font-size: 11px; color: var(--text2);
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .chip:hover { border-color: var(--glow); color: var(--accent); background: var(--adim); }
+
+    /* ── ACHIEVEMENTS ───────────────────────────────────────── */
+    #achievements { padding: 110px 0; background: var(--bg2); }
+    .sec-hdr { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; gap: 20px; }
+    .sec-title {
+      font-family: var(--ff); font-size: clamp(34px,4vw,50px);
+      font-weight: 800; letter-spacing: -.03em; line-height: 1.05;
+    }
+    .ach-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 15px; }
+
+    /* tilt card base */
+    .tc {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--rl); padding: 26px;
+      position: relative; overflow: hidden;
+      transform-style: preserve-3d;
+      transition: border-color .35s, box-shadow .35s;
+    }
+    .tc-shine {
+      position: absolute; inset: 0; border-radius: inherit;
+      background: radial-gradient(circle at 50% 50%,rgba(0,230,190,.13) 0%,transparent 65%);
+      opacity: 0; pointer-events: none; transition: opacity .3s; z-index: 0;
+    }
+    .tc > * { position: relative; z-index: 1; }
+    .tc:hover {
+      border-color: var(--glow);
+      box-shadow: 0 0 0 1px rgba(0,230,190,.22), 0 20px 60px rgba(0,230,190,.12), 0 40px 80px rgba(0,0,0,.35);
+    }
+    .tc.gold:hover { border-color: rgba(245,200,66,.38); box-shadow: 0 0 0 1px rgba(245,200,66,.18), 0 20px 60px rgba(245,200,66,.09), 0 40px 80px rgba(0,0,0,.35); }
+
+    .ach-icon { font-size: 30px; margin-bottom: 14px; display: block; }
+    .ach-badge {
+      display: inline-block; font-family: var(--fm); font-size: 9px;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 100px; margin-bottom: 10px;
+    }
+    .b-gold   { background: var(--gdim); color: var(--gold);   border: 1px solid rgba(245,200,66,.25); }
+    .b-teal   { background: var(--adim); color: var(--accent); border: 1px solid var(--glow); }
+    .b-muted  { background: var(--bg3);  color: var(--text2);  border: 1px solid var(--border); }
+    .ach-title {
+      font-family: var(--ff); font-size: 15px; font-weight: 700;
+      color: var(--text); margin-bottom: 9px;
+    }
+    .ach-body { font-size: 13px; color: var(--text2); line-height: 1.65; }
+    .hi       { color: var(--gold);   font-weight: 600; }
+    .hi.t     { color: var(--accent); }
+    .ach-card-top::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg,transparent,var(--accent),transparent);
+      transform: scaleX(0); transition: transform .4s var(--ease); z-index: 2;
+    }
+    .ach-card-top.gold::before { background: linear-gradient(90deg,transparent,var(--gold),transparent); }
+    .tc:hover .ach-card-top::before { transform: scaleX(1); }
+
+    /* ── PROJECTS ───────────────────────────────────────────── */
+    #projects { padding: 110px 0; }
+    .proj-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+    .proj-card {
+      display: flex; flex-direction: column;
+      border-radius: var(--rxl); padding: 32px;
+    }
+    .proj-card.featured { grid-column: span 2; flex-direction: row; align-items: center; gap: 44px; }
+    .proj-body { flex: 1; }
+    .proj-visual {
+      width: 280px; flex-shrink: 0; height: 190px;
+      background: var(--bg3); border-radius: var(--rl);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 60px; border: 1px solid var(--border);
+    }
+    .proj-meta { display: flex; align-items: center; gap: 9px; margin-bottom: 15px; }
+    .proj-num  { font-family: var(--fm); font-size: 10.5px; color: var(--text2); letter-spacing: .06em; }
+    .proj-tag  { font-family: var(--fm); font-size: 9.5px; letter-spacing: .08em; padding: 3px 10px; border-radius: 100px; }
+    .t-live { background:rgba(0,230,190,.1); color:var(--accent); border:1px solid var(--glow); }
+    .t-wip  { background:rgba(245,200,66,.1); color:var(--gold);  border:1px solid rgba(245,200,66,.25); }
+    .t-hw   { background:rgba(255,107,107,.1); color:var(--coral);border:1px solid rgba(255,107,107,.25); }
+    .proj-title {
+      font-family: var(--ff); font-size: 21px; font-weight: 700;
+      letter-spacing: -.02em; color: var(--text); margin-bottom: 10px;
+    }
+    .proj-desc { font-size: 13.5px; color: var(--text2); line-height: 1.72; margin-bottom: 18px; flex: 1; }
+    .proj-tech { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 20px; }
+    .tech { font-family: var(--fm); font-size: 9.5px; letter-spacing: .06em; color: var(--text2); background: var(--bg3); border: 1px solid var(--border); padding: 3px 9px; border-radius: 4px; }
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--fm); font-size: 10.5px; letter-spacing: .06em;
+      color: var(--accent); transition: gap .2s var(--spring);
+    }
+    .proj-link:hover { gap: 9px; }
+
+    /* ── BOOKS ──────────────────────────────────────────────── */
+    #books { padding: 110px 0; background: var(--bg2); }
+    .books-intro { max-width: 540px; margin-bottom: 48px; }
+    .books-intro p { color: var(--text2); font-size: 14.5px; line-height: 1.8; margin-top: 12px; }
+    .books-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; }
+    .bk-card { display: flex; flex-direction: column; border-radius: var(--rl); overflow: hidden; }
+    .bk-cover {
+      height: 150px;
+      background: linear-gradient(135deg,var(--bg3) 0%,var(--surface) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px; border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .bk-cover::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(0,230,190,.06),transparent); }
+    .bk-body { padding: 18px; flex: 1; display: flex; flex-direction: column; }
+    .bk-title { font-family: var(--ff); font-size: 13.5px; font-weight: 700; color: var(--text); margin-bottom: 7px; line-height: 1.3; }
+    .bk-desc  { font-size: 12px; color: var(--text2); line-height: 1.65; flex: 1; margin-bottom: 14px; }
+    .bk-link  { font-family: var(--fm); font-size: 10px; letter-spacing: .06em; color: var(--accent); display: flex; align-items: center; gap: 5px; transition: gap .2s; }
+    .bk-link:hover { gap: 8px; }
+
+    /* ── CERTIFICATIONS ─────────────────────────────────────── */
+    #certifications { padding: 110px 0; }
+    .cert-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .cert-card { display: flex; gap: 18px; align-items: flex-start; padding: 26px 30px; }
+    .cert-ico { width: 46px; height: 46px; flex-shrink: 0; background: var(--bg3); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; border: 1px solid var(--border); }
+    .cert-title { font-family: var(--ff); font-size: 14.5px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .cert-issuer { font-family: var(--fm); font-size: 10.5px; color: var(--accent); letter-spacing: .06em; margin-bottom: 7px; }
+    .cert-note { font-family: var(--fm); font-size: 11.5px; color: var(--text2); }
+    .cert-note strong { color: var(--gold); }
+
+    /* ── CONTACT ────────────────────────────────────────────── */
+    #contact { padding: 110px 0 80px; text-align: center; }
+    .contact-in { max-width: 600px; margin: 0 auto; }
+    .contact-hl {
+      font-family: var(--ff); font-size: clamp(38px,5vw,62px);
+      font-weight: 800; letter-spacing: -.04em; line-height: 1;
+      color: var(--text); margin-bottom: 18px;
+    }
+    .contact-hl em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--accent); }
+    .contact-sub { color: var(--text2); font-size: 15px; line-height: 1.72; margin-bottom: 44px; }
+    .contact-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .csoc {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 11px 18px; font-family: var(--fm); font-size: 11.5px; color: var(--text2);
+      transition: border-color .2s, color .2s, transform .2s var(--spring), box-shadow .3s;
+    }
+    .csoc:hover { transform: translateY(-3px); }
+    .csoc.s-gh:hover  { border-color:rgba(255,255,255,.28); color:#fff;     box-shadow:0 0 18px rgba(255,255,255,.16); }
+    .csoc.s-li:hover  { border-color:rgba(10,102,194,.5);   color:#0A66C2;  box-shadow:0 0 18px rgba(10,102,194,.28); }
+    .csoc.s-yt:hover  { border-color:rgba(255,0,0,.4);      color:#FF0000;  box-shadow:0 0 18px rgba(255,0,0,.2); }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      position: relative; z-index: 2;
+      border-top: 1px solid var(--border); padding: 28px 48px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .foot-copy { font-family: var(--fm); font-size: 10.5px; letter-spacing: .06em; color: var(--text2); }
+    .foot-copy span { color: var(--accent); }
+    .foot-old { font-family: var(--fm); font-size: 10.5px; color: var(--text2); display: flex; align-items: center; gap: 5px; transition: color .2s; }
+    .foot-old:hover { color: var(--accent); }
+
+    /* ── BACK TO TOP ────────────────────────────────────────── */
+    #btt {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 42px; height: 42px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text2); cursor: none; z-index: 700;
+      opacity: 0; transform: translateY(10px) scale(.85); pointer-events: none;
+      transition: opacity .3s, transform .3s var(--spring), border-color .2s, color .2s, box-shadow .3s;
+    }
+    #btt.on { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    #btt:hover { border-color: var(--glow); color: var(--accent); box-shadow: 0 0 20px rgba(0,230,190,.22); }
+
+    /* ── MOBILE NAV ─────────────────────────────────────────── */
+    .mnav {
+      display: none; position: fixed; inset: 0;
+      background: var(--bg); z-index: 700;
+      flex-direction: column; align-items: center; justify-content: center; gap: 30px;
+    }
+    .mnav.open { display: flex; }
+    .mnav a { font-family: var(--ff); font-size: 30px; font-weight: 700; color: var(--text2); letter-spacing: -.02em; transition: color .2s; }
+    .mnav a:hover { color: var(--accent); }
+
+    /* ── REVEAL ANIMATION ───────────────────────────────────── */
+    @keyframes fsu { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+    .rev { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .rev.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+
+    /* ── SCROLLBAR ──────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    /* ── RESPONSIVE ─────────────────────────────────────────── */
+
+    /* 1280px — wide desktop */
+    @media (max-width: 1280px) {
+      .wrap { max-width: 100%; padding: 0 48px; }
+    }
+
+    /* 1024px — tablet landscape / small laptop */
+    @media (max-width: 1024px) {
+      nav { padding: 14px 32px; }
+      .wrap { padding: 0 32px; }
+      .hero-l { padding-left: 32px; }
+      .hero-r { padding-right: 32px; }
+      #hero { gap: 36px; }
+      .hero-name { font-size: clamp(44px,6vw,72px); }
+      .ach-grid { grid-template-columns: repeat(2,1fr); }
+      .books-grid { grid-template-columns: repeat(3,1fr); }
+      .proj-visual { width: 220px; height: 160px; }
+    }
+
+    /* 860px — tablet portrait */
+    @media (max-width: 860px) {
+      #hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        padding: 86px 0 0;
+        gap: 28px;
+        text-align: center;
+      }
+      .hero-l { padding-left: 24px; padding-right: 24px; }
+      .hero-r { padding-left: 24px; padding-right: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      #scrolldown { padding-bottom: 28px; }
+      .hero-ctas { justify-content: center; }
+      .hero-socials { justify-content: center; }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-r { padding-top: 0; }
+      .ach-grid { grid-template-columns: repeat(2,1fr); }
+      .proj-grid { grid-template-columns: 1fr; }
+      .proj-card.featured { flex-direction: column; gap: 24px; }
+      .proj-visual { width: 100%; height: 160px; }
+      .books-grid { grid-template-columns: repeat(2,1fr); }
+      .cert-row { grid-template-columns: 1fr; }
+      .sec-hdr { flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+
+    /* 640px — phone landscape */
+    @media (max-width: 640px) {
+      body { cursor: auto; }
+      #cur, #cur-ring { display: none; }
+      nav { padding: 13px 20px; }
+      .nav-links { display: none; }
+      .nav-ham { display: flex; }
+      .wrap { padding: 0 20px; }
+      .hero-l { padding-left: 20px; padding-right: 20px; }
+      .hero-r { padding-left: 20px; padding-right: 20px; grid-template-columns: 1fr; }
+      #hero { padding: 82px 0 0; gap: 20px; }
+      .hero-name { font-size: clamp(40px,10vw,60px); }
+      #about, #achievements, #projects, #books, #certifications, #contact { padding: 72px 0; }
+      .about-hl { font-size: clamp(28px,7vw,40px); }
+      .sec-title { font-size: clamp(28px,7vw,40px); }
+      .contact-hl { font-size: clamp(28px,8vw,44px); }
+      .ach-grid { grid-template-columns: 1fr; }
+      .books-grid { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; text-align: center; padding: 24px 20px; }
+    }
+
+    /* 420px — small phones */
+    @media (max-width: 420px) {
+      .hero-name { font-size: clamp(34px,11vw,48px); }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-ctas .btn-p, .hero-ctas .btn-g { width: 100%; justify-content: center; }
+      .books-grid { grid-template-columns: 1fr; }
+      .chips { gap: 5px; }
+      .chip { font-size: 10.5px; padding: 4px 9px; }
+      .contact-links { flex-direction: column; align-items: stretch; }
+      .contact-links .btn-p, .contact-links .csoc { width: 100%; justify-content: center; }
+      nav { padding: 12px 16px; }
+      .wrap { padding: 0 16px; }
+      .hero-l { padding-left: 16px; padding-right: 16px; }
+      .hero-r { padding-left: 16px; padding-right: 16px; }
+    }
+  </style>
 </head>
-
 <body>
-    <div id="cursor-glow"></div>
 
-    <header id="navbar">
-        <div class="logo">PURV TAPARIA</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<div id="sprog"></div>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">PURV TAPARIA</h1>
-                <p class="hero-subtitle">Student | Coder | Creative Writer</p>
-                <div class="social-links">
-                    <a href="https://github.com/tapariapurv" target="_blank" class="social-icon-github"
-                        title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/purv-taparia/" target="_blank" class="social-icon-linkedin"
-                        title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:purvtaparia2@gmail.com" class="social-icon-mail" title="Email"><i
-                            class="fas fa-envelope"></i></a>
-                    <a href="https://youtube.com/@purvtaparia" target="_blank" class="social-icon-youtube"
-                        title="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-                <a href="#projects" class="cta-button">View Work</a>
-            </div>
-            <div class="hero-visual">
-                <canvas id="hero-canvas"></canvas>
-            </div>
-        </section>
+<!-- Mobile Nav -->
+<div class="mnav" id="mnav">
+  <a href="#hero"          onclick="closeMnav()">Home</a>
+  <a href="#about"         onclick="closeMnav()">About</a>
+  <a href="#achievements"  onclick="closeMnav()">Achievements</a>
+  <a href="#projects"      onclick="closeMnav()">Projects</a>
+  <a href="#books"         onclick="closeMnav()">Books</a>
+  <a href="#contact"       onclick="closeMnav()">Contact</a>
+</div>
 
-        <!-- About Section -->
-        <section id="about" class="fade-in">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo"><span>P</span>urv Taparia</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#projects">Projects</a>
+    <a href="#books">Books</a>
+    <a href="#contact" class="nav-cta">Get In Touch</a>
+  </div>
+  <button class="nav-ham" onclick="toggleMnav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-                <!-- Intro -->
-                <div class="card">
-                    <div class="about-card-header">
-                        <h3>👋 Intro</h3>
-                    </div>
-                    <hr class="about-divider">
-                    <p>Hi! I am <b>Purv Taparia</b>, a <b>9-year old student</b> from Class 4 residing in <b>Mumbai, India</b>. I built this portfolio from the ground up to showcase my creative and technical abilities.</p>
-                    <p>I have achieved <b>International Rank 1</b> in the International English Olympiad twice, placed in national-level roller skating competitions, and have many exciting projects under my belt. I love learning new things every day!</p>
-                </div>
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-l">
+    <h1 class="hero-name">
+      PURV<br/><em>TAPARIA</em>
+    </h1>
 
-                <!-- Artificial Intelligence -->
-                <div class="card">
-                    <div class="about-card-header">                        
-                        <h3>🤖 Artificial Intelligence</h3>
-                    </div>
-                    <hr class="about-divider">
-                    <p>I have many skills in the field of AI. I have used models like <b>Veo 3.1</b> to create production-class videos and <b>Nano Banana Pro</b> to create mesmerising images.</p>
-                    <p>I also use AI tools to boost productivity — from building Excel sheets and PowerPoint presentations to generating well-structured essays and creative content. I hold <b>Anthropic's Claude 101 Certification</b>.</p>
-                </div>
+    <p class="hero-sub">Student | Coder | Creative Writer</p>
 
-                <!-- Programming -->
-                <div class="card">
-                    <div class="about-card-header">                        
-                        <h3>💻 Programming</h3>
-                    </div>
-                    <hr class="about-divider">
-                    <p>I can program in <b>HTML, CSS, Python and C++</b>. I have a solid understanding of fundamental programming concepts:</p>
-                    <ul class="about-list">
-                        <li>Variables and Data Types</li>
-                        <li>Loops (for, while)</li>
-                        <li>Conditional Statements</li>
-                        <li>Functions</li>
-                        <li>Arrays, Lists &amp; Dictionaries</li>
-                        <li>Objects and more...</li>
-                    </ul>
-                </div>
+    <p class="hero-desc">
+      Hi! I am <strong>Purv Taparia</strong>, a student from Class 4 residing in
+      <strong>Mumbai, India</strong>. I built this portfolio from the ground up to
+      showcase my creative and technical abilities. I have achieved
+      <strong>International Rank 1</strong> in the International English Olympiad twice,
+      placed in national-level roller skating competitions, and have many exciting
+      projects under my belt.
+    </p>
 
-                <!-- Creative Writing -->
-                <div class="card">
-                    <div class="about-card-header">                        
-                        <h3>✍️ Creative Writing</h3>
-                    </div>
-                    <hr class="about-divider">
-                    <p>I am proficient in creative writing — descriptive stories, essays, and paragraphs. I am fluent in English with a strong vocabulary and grammar.</p>
-                    <p>I have <b>published 4 books</b> on Bribooks and achieved <b>International Rank 1</b> in the Science Olympiad Foundation's International English Olympiad. Writing is one of my biggest passions!</p>
-                </div>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-p">
+        View Work
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="assets/Purv Taparia - Resume.pdf" class="btn-g" target="_blank">
+        Download Resume
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v7M3 5l3 3 3-3M1 10h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
 
-            </div>
-            <div class="about-resume">
-                <a href="assets/Purv Taparia - Resume.pdf" target="_blank" class="cta-button">Download My Resume</a>
-            </div>
-        </section>
+    <div class="hero-socials">
+      <a href="https://github.com/tapariapurv" target="_blank" aria-label="GitHub" class="s-gh">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/purv-taparia/" target="_blank" aria-label="LinkedIn" class="s-li">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="mailto:tapariapurv+portfolio@gmail.com" aria-label="Email" class="s-em">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+      <a href="https://youtube.com/@purvtaparia" target="_blank" aria-label="YouTube" class="s-yt">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+  </div>
 
-        <!-- Achievements Section -->
-        <section id="achievements" class="fade-in">
-            <h2 class="section-title">Achievements and Certifications</h2>
-            <div class="achievements-grid">
-                <div class="card achievement-card">
-                    <h3>International English Olympiad (IEO)</h3>
-                    <p><strong>International Rank 1</strong> in Grade 1.</p>
-                    <p><strong>School Rank 1</strong> in Grade 2 (39/40).</p>
-                    <p><strong>International Rank 1</strong> in Grade 3 Level 1 (40/40).</p>
-                    <p>Won <strong>Rs. 50,000</strong> in Grade 3 Level 2 for securing 40/40 marks (International Rank
-                        1).</p>
-                </div>
-                <div class="card achievement-card">
-                    <h3>ICSO / National Cyber Olympiad</h3>
-                    <p>International Rank 2 in Grade 3.</p>
-                    <p>Won <strong>Rs. 8,333</strong> (39/40 marks).</p>
-                </div>
-                <div class="card achievement-card">
-                    <h3>Mathematics (IPM)</h3>
-                    <p>Achieved <strong>94th Rank</strong> in the All-India Open Mathematics Scholarship Examination
-                        Mega-Final in Grade 2.</p>
-                </div>
-                <div class="card achievement-card">
-                    <h3>Roller Skating</h3>
-                    <p><strong>3rd Place</strong> in 3rd Mumbai Suburban Roller Athletics District Competition.</p>
-                    <p><strong>5th Place</strong> in 3rd Maharashtra Roller Athletics State Competition.</p>
-                    <p><strong>5th Place</strong> in 3rd Roller Athletics National Competition.</p>
-                </div>
-                <div class="card achievement-card">
-                    <h3>Arduino Junior Certification</h3>
-                    <p><strong>Passed</strong> Arduino Junior Certification exam with <strong>96%</strong>.</p>
-                    <p>Download certification proof <a href="assets\Arduino Junior Certification.pdf"
-                            target="_blank"><strong>here</strong></a></p>
-                </div>
-                <div class="card achievement-card">
-                    <h3>Claude 101 Certification</h3>
-                    <p><strong>Completed</strong> Anthropic Academy's Claude 101 Certification.</p>
-                    <p>This certification includes various topics such as how to work with Claude, use Claude Projects
-                        and Skills and boost productivity with Claude.</p>
-                    <p>You can download the certification proof <a href="assets\Claude 101 Certificate.pdf"
-                            target="_blank"><strong>here</strong></a></p>
-                </div>
-            </div>
-        </section>
+  <div class="hero-r">
+    <div class="hero-orb"></div>
 
-        <!-- Projects Section -->
-        <section id="projects" class="fade-in">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="card project-card" data-tilt>
-                    <div class="card-content">
-                        <h3>Rapid Games</h3>
-                        <p class="date">October 2025</p>
-                        <p>A free online gaming platform featuring a hand-picked collection of browser games curated
-                            from top sites like CrazyGames.com and Poki.com. It offers an extensive variety of action,
-                            puzzle, sports, and racing games. The site prioritizes simplicity, speed, and fun, providing
-                            an intuitive search function.</p>
-                        <p>Built with passion and dedication by developers Purv (Me), Ridit, and Devansh.</p>
-                        <a href="https://tapariapurv.github.io/rapidgames" target="_blank" class="link-text">View
-                            Project &rarr;</a>
-                    </div>
-                </div>
-                <div class="card project-card" data-tilt>
-                    <div class="card-content">
-                        <h3>Neo-Pixel Game</h3>
-                        <p class="date">Jan 2026</p>
-                        <p>This is a game made using neopixels which you can play. It consists of an 8x8 Neo-Pixel Grid,
-                            a Piezo and an Arduino Uno. The project is enhoused within a 3D Printed Case and is powered
-                            by 2 3.7V rechargable batteries.</p>
-                    </div>
-                </div>
-                <div class="card project-card" data-tilt>
-                    <div class="card-content">
-                        <h3>Air Quality Monitor</h3>
-                        <p class="date">November 2025</p>
-                        <p>This is an Air Quality Monitor which I made when Delhi's Air Quality hit a staggering high of
-                            900 which is much more than the generally conisdered HAZARDOUS limit of 300. This is project
-                            includes a MQ135 Gas Sensor which provides a not very accurate but good enough AQI level
-                            which is displayed on a 128x64 OLED Display. All of these components are controlled by an
-                            Arduino Nano which is powered by 2 rechargable batteries. All of this is enclosed in a 3D
-                            Printed case designed by me. You can view a demonstration of this project on <a
-                                href="https://youtube.com/shorts/qGbcmELwwhQ?si=VJU1C6PGeXlvjgB7" target=_blank>YouTube
-                                by clicking here</a>.</p>
-                    </div>
-                </div>
-                <div class="card project-card" data-tilt>
-                    <div class="card-content">
-                        <h3>LiteWarden</h3>
-                        <p class="date">January 2026 (Work In Progress)</p>
-                        <p>This is a chrome extension, hosted on <a
-                                href="https://github.com/tapariapurv/chrome-extension" target="_blank">Github</a> to
-                            manage users' passwords seamlessly, and locally on their browser insuring nothing goes to
-                            datacenters outside their computer, this also enables the service to be completely free of
-                            cost too. Users can access, fill and add different login details in a unified interface.
-                            This project is still a work in progress though.</p>
-                    </div>
-                </div>
-        </section>
+    <div class="hcard tc">
+      <div class="tc-shine"></div>
+      <div class="hcard-ico">🏆</div>
+      <div>
+        <div class="hcard-lbl">Top Achievement</div>
+        <div class="hcard-val"><span>International Rank 1</span> — IEO Olympiad</div>
+      </div>
+    </div>
 
-        <!-- Books Section -->
-        <section id="books" class="fade-in">
-            <h2 class="section-title">Published Books</h2>
-            <div class="books-grid">
-                <div class="card book-card">
-                    <h3>Dubai and a Futuristic City</h3>
-                    <p>This book has 2 sections: the first is about when me and my friends get teleported to Dubai while
-                        playing hide and seek, and the second is when I get teleported to a futuristic city alone.</p>
-                    <a href="https://www.bribooks.com/bookstore/dubai-and-a-futuristic-city" target="_blank"
-                        class="link-text">Read on Bribooks &rarr;</a>
-                </div>
-                <div class="card book-card">
-                    <h3>The Tour to DigiDream</h3>
-                    <p>An educational book that teaches readers about devices such as air conditioners, smartphones, and
-                        AI assistants like Gemini.</p>
-                    <a href="https://bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia" target="_blank"
-                        class="link-text">Read on Bribooks &rarr;</a>
-                </div>
-                <div class="card book-card">
-                    <h3>Five Stories by Purv Taparia</h3>
-                    <p>Includes five stories written by me. Some are about beaches, a picnic, a magical carpet, etc. One
-                        of my first proper books.</p>
-                    <a href="https://www.bribooks.com/bookstore/five-stories-by-purv-taparia" target="_blank"
-                        class="link-text">Read on Bribooks &rarr;</a>
-                </div>
-                <div class="card book-card">
-                    <h3>Graduation Day</h3>
-                    <p>My first book. It is about a graduation day of a person who happens to win student of the year
-                        too.</p>
-                    <a href="https://www.bribooks.com/bookstore/graduation-day-6479ed2fbb7fb/" target="_blank"
-                        class="link-text">Read on Bribooks &rarr;</a>
-                </div>
-            </div>
-        </section>
+    <div class="hcard tc">
+      <div class="tc-shine"></div>
+      <div class="hcard-ico">📚</div>
+      <div>
+        <div class="hcard-lbl">Published Author</div>
+        <div class="hcard-val"><span>5 books</span> published</div>
+      </div>
+    </div>
 
-        <!-- Skills Section -->
-        <section id="skills" class="fade-in">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-wrapper">
-                <div class="skill-category">
-                    <h3>Robotics & Coding</h3>
-                    <p>I have learnt how to make LEDs (Light Emitting Diodes) light up using a bread board, single LEDs,
-                        a Micro-Bit, a Micro-Bit breakout board, a power cable and a few male to female wires.</p>
-                    <p>I know block coding, Python (basics), HTML, CSS, and some Javascript. I have made innumerable
-                        projects
-                        on Scratch that use variables and logic.</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Microsoft Office</h3>
-                    <p><strong>Excel:</strong> I can use formulas/functions (SUM, IF), Record Macros, conditional
-                        formatting, Text to Columns, Freeze Panes, etc.</p>
-                    <p><strong>PowerPoint:</strong> I can create presentations using Excel Tables, Shapes, transitions,
-                        animations, and links.</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Artificial Intelligence</h3>
-                    <p>I use AI for making Excel files, PowerPoint presentations, and generating paragraphs/essays. I
-                        have experience with tools like Veo 3.1 for video and Nano Banana Pro for images.</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Creative Writing</h3>
-                    <p>I can write descriptive stories, essays, and paragraphs using proper grammar, and descriptive
-                        words and vocabulary.</p>
-                </div>
-            </div>
-        </section>
+    <div class="hcard tc">
+      <div class="tc-shine"></div>
+      <div class="hcard-ico">⚡</div>
+      <div>
+        <div class="hcard-lbl">Certifications</div>
+        <div class="hcard-val">Arduino <span>96%</span> · Claude 101</div>
+      </div>
+    </div>
 
-        <!-- Contact Section -->
-        <section id="contact" class="fade-in">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-container">
-                <p>Feel free to reach out for collaborations or just to say hi!</p>
-                <br>
-                <a href="mailto:tapariapurv+portfolio@gmail.com?subject=Reaching%20Out&body=Hi%20Purv%2C%0A%0AI%20found%20you%20on%20your%20portfolio%20website%20and%20I%20would%20like%20to%20talk%20to%20you"
-                    class="cta-button">Email Me</a>
-            </div>
-        </section>
-    </main>
+    <div class="hcard tc">
+      <div class="tc-shine"></div>
+      <div class="hcard-ico">🤖</div>
+      <div>
+        <div class="hcard-lbl">Hardware Projects</div>
+        <div class="hcard-val">Neo-Pixel Game · Air Quality Monitor</div>
+      </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 Purv Taparia. All rights reserved.</p>
-        <p>This is my new portfolio website. If you wish to view my old one you may click <a
-                href="https://tapariapurv.github.io/old-portfolio" target="_blank">here</a></p>
-    </footer>
+    <div class="hcard tc">
+      <div class="tc-shine"></div>
+      <div class="hcard-ico">🛼</div>
+      <div>
+        <div class="hcard-lbl">Athletics</div>
+        <div class="hcard-val">National-level <span>Roller Skating</span> competitor</div>
+      </div>
+    </div>
+  </div>
 
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
+  <!-- Scroll Down -->
+  <a id="scrolldown" href="#about" aria-label="Scroll down">
+    <span>Scroll</span>
+    <div class="sd-arrow">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2v9M2 7l4.5 4.5L11 7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </a>
+</section>
+
+<!-- Back to Top -->
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 11.5V3.5M3 8l4.5-4.5L12 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- MARQUEE -->
+<div class="mq-wrap" aria-hidden="true">
+  <div class="mq-track">
+    <div class="mq-item"><span class="mq-dot">✦</span> HTML · CSS · Python · C++</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Arduino &amp; NeoPixels</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Claude 101 Certification</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> International Rank 1</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> 5x Published Author</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Roller Skating</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Chrome Extensions</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Air Quality Monitor</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> AI &amp; Prompt Engineering</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Microsoft Office</div>
+    <!-- duplicate for seamless loop -->
+    <div class="mq-item"><span class="mq-dot">✦</span> HTML · CSS · Python · C++</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Arduino &amp; NeoPixels</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Claude 101 Certification</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> International Rank 1</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> 5x Published Author</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Roller Skating</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Chrome Extensions</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Air Quality Monitor</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> AI &amp; Prompt Engineering</div>
+    <div class="mq-item"><span class="mq-dot">✦</span> Microsoft Office</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="slabel rev">About Me</div>
+        <h2 class="about-hl rev d1">Student.<br/>Coder.<br/><em>Creative Writer.</em></h2>
+        <div class="about-body rev d2">
+          <p>Hi! I am <strong>Purv Taparia</strong>, a student from Class 4 residing in <strong>Mumbai, India</strong>. I built this portfolio from the ground up to showcase my creative and technical abilities.</p>
+          <p>I have many skills in the field of AI. I have used models like <strong>Veo 3.1</strong> to create production-class videos and <strong>Nano Banana Pro</strong> to create mesmerising images. I also use AI tools to boost productivity — from building Excel sheets and PowerPoint presentations to generating well-structured essays and creative content. I hold <strong>Anthropic's Claude 101 Certification</strong>.</p>
+          <p>I can program in <strong>HTML, CSS, Python and C++</strong>. I am proficient in creative writing — descriptive stories, essays, and paragraphs. I am fluent in English with a strong vocabulary and grammar, and have <strong>published 5 books</strong> across Bribooks and Amazon.</p>
+        </div>
+        <div class="stats rev d3">
+          <div class="stat"><div class="stat-n">#1</div><div class="stat-l">International Rank</div></div>
+          <div class="stat"><div class="stat-n">5</div><div class="stat-l">Books Published</div></div>
+          <div class="stat"><div class="stat-n">96%</div><div class="stat-l">Arduino Score</div></div>
+          <div class="stat"><div class="stat-n">Rs.50K</div><div class="stat-l">Prize Won (IEO)</div></div>
+        </div>
+      </div>
+
+      <div class="about-r rev d2">
+        <div class="sg">
+          <div class="sg-title">Robotics &amp; Coding</div>
+          <div class="chips">
+            <div class="chip">🌐 HTML &amp; CSS</div>
+            <div class="chip">🐍 Python</div>
+            <div class="chip">⚡ C++</div>
+            <div class="chip">🔧 JavaScript</div>
+            <div class="chip">🧩 Block Coding</div>
+            <div class="chip">🤖 Arduino</div>
+            <div class="chip">💡 NeoPixels</div>
+            <div class="chip">🔬 Breadboards &amp; LEDs</div>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-title">Microsoft Office</div>
+          <div class="chips">
+            <div class="chip">📊 Excel (formulas, macros)</div>
+            <div class="chip">📑 PowerPoint</div>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-title">Artificial Intelligence</div>
+          <div class="chips">
+            <div class="chip">🧠 Claude / Anthropic</div>
+            <div class="chip">🎬 Veo 3.1</div>
+            <div class="chip">🖼️ Nano Banana Pro</div>
+            <div class="chip">⚙️ Prompt Engineering</div>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-title">Creative Writing</div>
+          <div class="chips">
+            <div class="chip">✍️ Descriptive Stories</div>
+            <div class="chip">📝 Essays &amp; Paragraphs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="wrap">
+    <div class="sec-hdr">
+      <div>
+        <div class="slabel rev">Recognition</div>
+        <h2 class="sec-title rev d1">Achievements &amp;<br/>Certifications</h2>
+      </div>
+    </div>
+    <div class="ach-grid">
+
+      <div class="tc gold ach-card-top gold rev">
+        <div class="tc-shine"></div>
+        <span class="ach-icon">🥇</span>
+        <span class="ach-badge b-gold">International</span>
+        <div class="ach-title">International English Olympiad (IEO)</div>
+        <div class="ach-body">
+          <span class="hi">International Rank 1</span> in Grade 1<br/>
+          School Rank 1 in Grade 2 (39/40)<br/>
+          <span class="hi">International Rank 1</span> in Grade 3 Level 1 (40/40)<br/>
+          Won <span class="hi">Rs. 50,000</span> in Grade 3 Level 2 (40/40, International Rank 1)
+        </div>
+      </div>
+
+      <div class="tc ach-card-top rev d1">
+        <div class="tc-shine"></div>
+        <span class="ach-icon">💻</span>
+        <span class="ach-badge b-teal">International</span>
+        <div class="ach-title">ICSO / National Cyber Olympiad</div>
+        <div class="ach-body">
+          <span class="hi t">International Rank 2</span> in Grade 3<br/>
+          Scored 39/40 marks<br/>
+          Won <span class="hi t">Rs. 8,333</span>
+        </div>
+      </div>
+
+      <div class="tc ach-card-top rev d2">
+        <div class="tc-shine"></div>
+        <span class="ach-icon">📐</span>
+        <span class="ach-badge b-muted">National</span>
+        <div class="ach-title">Mathematics (IPM)</div>
+        <div class="ach-body">
+          Achieved <span class="hi t">94th Rank</span> in the All-India Open Mathematics Scholarship Examination Mega-Final in Grade 2
+        </div>
+      </div>
+
+      <div class="tc ach-card-top rev">
+        <div class="tc-shine"></div>
+        <span class="ach-icon">🛼</span>
+        <span class="ach-badge b-muted">Athletics</span>
+        <div class="ach-title">Roller Skating</div>
+        <div class="ach-body">
+          3rd Place — 3rd Mumbai Suburban Roller Athletics District Competition<br/>
+          5th Place — 3rd Maharashtra Roller Athletics State Competition<br/>
+          5th Place — 3rd Roller Athletics National Competition
+        </div>
+      </div>
+
+      <div class="tc ach-card-top rev d1">
+        <div class="tc-shine"></div>
+        <span class="ach-icon">⚡</span>
+        <span class="ach-badge b-teal">Certification</span>
+        <div class="ach-title">Arduino Junior Certification</div>
+        <div class="ach-body">
+          Passed the Arduino Junior Certification exam with <span class="hi t">96%</span>
+        </div>
+      </div>
+
+      <div class="tc ach-card-top rev d2">
+        <div class="tc-shine"></div>
+        <span class="ach-icon">🧠</span>
+        <span class="ach-badge b-teal">Certification</span>
+        <div class="ach-title">Claude 101 Certification</div>
+        <div class="ach-body">
+          Completed Anthropic Academy's Claude 101 Certification. Includes topics such as how to work with Claude, use Claude Projects, and boost productivity with Claude.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-hdr">
+      <div>
+        <div class="slabel rev">Built by Me</div>
+        <h2 class="sec-title rev d1">Projects</h2>
+      </div>
+    </div>
+    <div class="proj-grid">
+
+      <div class="proj-card featured tc rev">
+        <div class="tc-shine"></div>
+        <div class="proj-body">
+          <div class="proj-meta">
+            <span class="proj-num">01</span>
+            <span class="proj-tag t-live">● Live</span>
+          </div>
+          <h3 class="proj-title">Rapid Games</h3>
+          <p class="proj-desc">A free online gaming platform featuring a hand-picked collection of browser games curated for everyone. Built with passion and dedication by developers Purv (Me), Ridit, and Devansh. — October 2025</p>
+          <div class="proj-tech">
+            <span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span><span class="tech">GitHub Pages</span>
+          </div>
+          <a href="https://tapariapurv.github.io/rapidgames" class="proj-link" target="_blank">
+            View Project →
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="proj-visual">🎮</div>
+      </div>
+
+      <div class="proj-card tc rev">
+        <div class="tc-shine"></div>
+        <div class="proj-meta">
+          <span class="proj-num">02</span>
+          <span class="proj-tag t-hw">⬡ Hardware</span>
+        </div>
+        <h3 class="proj-title">Neo-Pixel Game</h3>
+        <p class="proj-desc">A game made using NeoPixels which you can play. It consists of an 8×8 Neo-Pixel Grid. — Jan 2026</p>
+        <div class="proj-tech">
+          <span class="tech">Arduino</span><span class="tech">C++</span><span class="tech">NeoPixels</span>
+        </div>
+        <a href="https://youtube.com/@purvtaparia" class="proj-link" target="_blank">
+          Watch on YouTube →
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="proj-card tc rev d1">
+        <div class="tc-shine"></div>
+        <div class="proj-meta">
+          <span class="proj-num">03</span>
+          <span class="proj-tag t-hw">⬡ Hardware</span>
+        </div>
+        <h3 class="proj-title">Air Quality Monitor</h3>
+        <p class="proj-desc">An Air Quality Monitor I made when Delhi's Air Quality hit a staggering high. Watch it on <a href="https://youtube.com/shorts/qGbcmELwwhQ?si=VJU1C6PGeXlvjgB7" style="color:var(--accent)" target="_blank">YouTube</a>. — November 2025</p>
+        <div class="proj-tech">
+          <span class="tech">Arduino</span><span class="tech">C++</span><span class="tech">Sensors</span>
+        </div>
+        <a href="https://youtube.com/shorts/qGbcmELwwhQ?si=VJU1C6PGeXlvjgB7" class="proj-link" target="_blank">
+          Watch on YouTube →
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="proj-card tc rev d2">
+        <div class="tc-shine"></div>
+        <div class="proj-meta">
+          <span class="proj-num">04</span>
+          <span class="proj-tag t-wip">◐ In Progress</span>
+        </div>
+        <h3 class="proj-title">LiteWarden</h3>
+        <p class="proj-desc">A Chrome extension hosted on Github to manage users' passwords seamlessly and locally on their browser — nothing goes to datacenters outside their computer. Free of cost. — January 2026</p>
+        <div class="proj-tech">
+          <span class="tech">JavaScript</span><span class="tech">Chrome APIs</span><span class="tech">HTML/CSS</span>
+        </div>
+        <a href="https://github.com/tapariapurv/chrome-extension" class="proj-link" target="_blank">
+          View on GitHub →
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section id="books">
+  <div class="wrap">
+    <div class="sec-hdr">
+      <div>
+        <div class="slabel rev">Writing</div>
+        <h2 class="sec-title rev d1">Published Books</h2>
+      </div>
+    </div>
+    <div class="books-intro rev d2">
+      <p>I have published 5 books across Bribooks and Amazon, and achieved International Rank 1 in the Science Olympiad Foundation's International English Olympiad.</p>
+    </div>
+    <div class="books-grid">
+
+      <div class="bk-card tc rev">
+        <div class="tc-shine"></div>
+        <div class="bk-cover">📈</div>
+        <div class="bk-body">
+          <div class="bk-title">10-Year-Old's Decode the Stock Market</div>
+          <div class="bk-desc">A beginner-friendly guide to the stock market written for young readers — covering investing fundamentals, how markets work, and financial literacy concepts in simple language.</div>
+          <a href="https://www.amazon.in/dp/B0H1YGCL2D" class="bk-link" target="_blank">
+            Buy on Amazon →
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="bk-card tc rev">
+        <div class="tc-shine"></div>
+        <div class="bk-cover">🏙️</div>
+        <div class="bk-body">
+          <div class="bk-title">Dubai and a Futuristic City</div>
+          <div class="bk-desc">This book has 2 sections: the first is about when me and my friends get teleported to Dubai while the second section is about being teleported to a futuristic city alone.</div>
+          <a href="https://www.bribooks.com/bookstore/dubai-and-a-futuristic-city" class="bk-link" target="_blank">
+            Read on Bribooks →
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="bk-card tc rev d1">
+        <div class="tc-shine"></div>
+        <div class="bk-cover">🖥️</div>
+        <div class="bk-body">
+          <div class="bk-title">The Tour to DigiDream</div>
+          <div class="bk-desc">An educational book that teaches readers about devices such as air conditioners, smartphones, and more.</div>
+          <a href="https://bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia" class="bk-link" target="_blank">
+            Read on Bribooks →
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="bk-card tc rev d2">
+        <div class="tc-shine"></div>
+        <div class="bk-cover">🎪</div>
+        <div class="bk-body">
+          <div class="bk-title">Five Stories by Purv Taparia</div>
+          <div class="bk-desc">Includes five stories written by me. Some are about beaches, a picnic, a magical carpet, etc.</div>
+          <a href="https://www.bribooks.com/bookstore/five-stories-by-purv-taparia" class="bk-link" target="_blank">
+            Read on Bribooks →
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="bk-card tc rev d3">
+        <div class="tc-shine"></div>
+        <div class="bk-cover">🎓</div>
+        <div class="bk-body">
+          <div class="bk-title">Graduation Day</div>
+          <div class="bk-desc">My first book. It is about a graduation day of a person who happens to win student of the year too.</div>
+          <a href="https://www.bribooks.com/bookstore/graduation-day-6479ed2fbb7fb/" class="bk-link" target="_blank">
+            Read on Bribooks →
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="wrap">
+    <div class="sec-hdr">
+      <div>
+        <div class="slabel rev">Credentials</div>
+        <h2 class="sec-title rev d1">Certifications</h2>
+      </div>
+    </div>
+    <div class="cert-row">
+      <div class="cert-card tc rev">
+        <div class="tc-shine"></div>
+        <div class="cert-ico">⚡</div>
+        <div>
+          <div class="cert-title">Arduino Junior Certification</div>
+          <div class="cert-issuer">Arduino Official</div>
+          <div class="cert-note">Passed with <strong>96%</strong></div>
+        </div>
+      </div>
+      <div class="cert-card tc rev d1">
+        <div class="tc-shine"></div>
+        <div class="cert-ico">🧠</div>
+        <div>
+          <div class="cert-title">Claude 101 Certification</div>
+          <div class="cert-issuer">Anthropic Academy</div>
+          <div class="cert-note">Completed — Claude Projects, AI workflows, productivity</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-in">
+      <div class="slabel rev" style="justify-content:center">Get In Touch</div>
+      <h2 class="contact-hl rev d1">Feel free to reach out<br/>for collaborations or<br/><em>just to say hi!</em></h2>
+      <p class="contact-sub rev d2">I am open to collaborations, projects, and conversations. Reach out anytime.</p>
+      <div class="contact-links rev d3">
+        <a href="mailto:tapariapurv+portfolio@gmail.com?subject=Reaching%20Out&body=Hi%20Purv%2C%0A%0AI%20found%20you%20on%20your%20portfolio%20website%20and%20I%20would%20like%20to%20talk%20to%20you" class="btn-p">
+          Email Me
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://github.com/tapariapurv" class="csoc s-gh" target="_blank">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/purv-taparia/" class="csoc s-li" target="_blank">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://youtube.com/@purvtaparia" class="csoc s-yt" target="_blank">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-copy">© 2026 <span>Purv Taparia</span>. All rights reserved.</div>
+  <a href="https://tapariapurv.github.io/old-portfolio" class="foot-old" target="_blank">
+    View old portfolio
+    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</footer>
+
+<script>
+  /* ── Custom Cursor ─────────────────────────────────────────── */
+  const cur = document.getElementById('cur');
+  const ring = document.getElementById('cur-ring');
+  let cx=0,cy=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => {
+    cx=e.clientX; cy=e.clientY;
+    cur.style.left=cx+'px'; cur.style.top=cy+'px';
+  });
+  (function tick(){
+    rx+=(cx-rx)*.12; ry+=(cy-ry)*.12;
+    ring.style.left=rx+'px'; ring.style.top=ry+'px';
+    requestAnimationFrame(tick);
+  })();
+  document.querySelectorAll('a,button,.chip,.tc,.stat').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+  });
+
+  /* ── 3D Tilt ───────────────────────────────────────────────── */
+  const MAX=11, SCALE=1.028, GSTR=0.16;
+  document.querySelectorAll('.tc').forEach(card=>{
+    const shine=card.querySelector('.tc-shine');
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=e.clientX-r.left, y=e.clientY-r.top;
+      const nx=(x-r.width/2)/(r.width/2);
+      const ny=(y-r.height/2)/(r.height/2);
+      card.style.transform=`perspective(800px) rotateX(${-ny*MAX}deg) rotateY(${nx*MAX}deg) scale(${SCALE})`;
+      card.style.transition='transform .07s linear,box-shadow .35s,border-color .35s';
+      if(shine){
+        shine.style.background=`radial-gradient(circle at ${(x/r.width*100).toFixed(1)}% ${(y/r.height*100).toFixed(1)}%,rgba(0,230,190,${GSTR}) 0%,transparent 65%)`;
+        shine.style.opacity='1';
+      }
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.style.transform='perspective(800px) rotateX(0) rotateY(0) scale(1)';
+      card.style.transition='transform .5s cubic-bezier(.34,1.56,.64,1),box-shadow .35s,border-color .35s';
+      if(shine) shine.style.opacity='0';
+    });
+  });
+
+  /* ── Scroll events ─────────────────────────────────────────── */
+  const sprog=document.getElementById('sprog');
+  const nav=document.getElementById('nav');
+  const btt=document.getElementById('btt');
+  window.addEventListener('scroll',()=>{
+    const s=window.scrollY, tot=document.body.scrollHeight-window.innerHeight;
+    sprog.style.width=(s/tot*100)+'%';
+    nav.classList.toggle('stuck', s>40);
+    btt.classList.toggle('on', s > tot*.55);
+  },{passive:true});
+
+  /* ── Scroll Reveal ─────────────────────────────────────────── */
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.1,rootMargin:'0px 0px -36px 0px'});
+  document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+
+  /* ── Mobile Nav ────────────────────────────────────────────── */
+  const mnav=document.getElementById('mnav');
+  function toggleMnav(){ mnav.classList.toggle('open'); }
+  function closeMnav(){ mnav.classList.remove('open'); }
+</script>
 </body>
-
 </html>
