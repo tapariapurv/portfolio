@@ -6,16 +6,56 @@
     <meta name="google-site-verification" content="xqLbD-xd9Cr2sTsCRxFxg-c19b-M6SnRkDD3pZVQEzs" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Purv Taparia | Portfolio</title>
+    <title>Purv Taparia | Student, Author & Developer from Mumbai</title>
     <meta name="description"
-        content="Portfolio of Purv Taparia — Student, Coder, and Creative Writer from Mumbai, India." />
+        content="Purv Taparia is a student from Mumbai, India — a 5x published author, International Rank 1 English Olympiad winner, coder (HTML, CSS, Python, C++, Arduino), newsletter blogger, and Arduino-certified maker." />
+    <meta name="keywords" content="Purv Taparia, student developer, published author, Mumbai, portfolio, Arduino, Python, HTML CSS, English Olympiad, creative writing, books, newsletter, Beehiiv" />
+    <meta name="author" content="Purv Taparia" />
+    <meta property="og:title" content="Purv Taparia | Student, Author & Developer" />
+    <meta property="og:description" content="5x published author, International Rank 1 Olympiad winner, coder, and newsletter writer from Mumbai, India." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tapariapurv.github.io" />
+    <link rel="canonical" href="https://tapariapurv.github.io" />
     <link rel="icon" type="image/svg+xml"
         href="assets/favicon.ico" viewBox='0 0 32 32'%3E%3Crect width='64' height='64' rx='8' fill='%23080a0f'/%3E%3Crect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%2300e6be' stroke-width='1' stroke-opacity='0.35'/%3E%3Ctext x='16' y='23' font-family='Arial Black%2C sans-serif' font-weight='900' font-size='19' fill='%2300e6be' text-anchor='middle' letter-spacing='-1'%3EP%3C/text%3E%3Ccircle cx='23' cy='10' r='2.5' fill='%2300e6be' opacity='0.7'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fonts load non-render-blocking so the loader paints instantly even on slow connections -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" />
     <link
         href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap"
-        rel="stylesheet" />
+        rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Purv Taparia",
+      "url": "https://tapariapurv.github.io",
+      "description": "Student, 5x published author, coder, and newsletter blogger from Mumbai, India.",
+      "jobTitle": "Student & Author",
+      "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN" },
+      "sameAs": [
+        "https://github.com/tapariapurv",
+        "https://www.linkedin.com/in/purv-taparia/",
+        "https://youtube.com/@decodewithpurv",
+        "https://tapariapurv.beehiiv.com"
+      ],
+      "knowsAbout": ["HTML", "CSS", "Python", "C++", "Arduino", "Creative Writing", "AI Prompt Engineering"],
+      "award": ["International Rank 1 — IEO English Olympiad (Grade 1)", "International Rank 1 — IEO English Olympiad (Grade 3)", "International Rank 2 — ICSO Cyber Olympiad (Grade 3)"],
+      "author": [
+        { "@type": "Book", "name": "10-Year-Old's Decode the Stock Market", "url": "https://www.amazon.in/dp/B0H1YGCL2D" },
+        { "@type": "Book", "name": "Dubai and a Futuristic City", "url": "https://www.bribooks.com/bookstore/dubai-and-a-futuristic-city" },
+        { "@type": "Book", "name": "The Tour to DigiDream", "url": "https://bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia" },
+        { "@type": "Book", "name": "Five Stories by Purv Taparia", "url": "https://www.bribooks.com/bookstore/five-stories-by-purv-taparia" },
+        { "@type": "Book", "name": "Graduation Day", "url": "https://www.bribooks.com/bookstore/graduation-day-6479ed2fbb7fb/" }
+      ]
+    }
+    </script>
 
     <style>
         /* ── TOKENS ─────────────────────────────────────────────── */
@@ -293,6 +333,16 @@
             transform-origin: left;
         }
 
+        /* Reflects current scroll position — lets the nav double as a live progress cue */
+        .nav-links a.fx-active {
+            color: var(--accent);
+        }
+
+        .nav-links a.fx-active::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
         .nav-cta {
             font-family: var(--fm);
             font-size: 11.5px;
@@ -302,6 +352,8 @@
             padding: 7px 18px;
             border-radius: 6px;
             transition: background .2s, color .2s;
+            position: relative;
+            overflow: hidden;
         }
 
         .nav-cta:hover {
@@ -383,7 +435,7 @@
             grid-template-rows: 1fr auto;
             align-items: center;
             gap: 56px;
-            padding: 88px 0 0;
+            padding: 88px 0 20px;
             position: relative;
             overflow: hidden;
         }
@@ -453,6 +505,8 @@
             padding: 13px 26px;
             border-radius: 8px;
             transition: transform .2s var(--spring), box-shadow .3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-p:hover {
@@ -472,6 +526,8 @@
             padding: 13px 26px;
             border-radius: 8px;
             transition: border-color .2s, color .2s, transform .2s var(--spring);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-g:hover {
@@ -623,7 +679,7 @@
             gap: 7px;
             justify-self: center;
             align-self: end;
-            padding-bottom: 12px;
+            padding-bottom: 30px;
             cursor: none;
             z-index: 10;
             animation: fsu 1.2s var(--ease) 1s both;
@@ -631,10 +687,11 @@
 
         #scrolldown span {
             font-family: var(--fm);
-            font-size: 9.5px;
+            font-size: 10.5px;
             letter-spacing: .14em;
             color: var(--text2);
             text-transform: uppercase;
+            opacity: 0.8;
         }
 
         .sd-arrow {
@@ -769,8 +826,10 @@
             background: var(--surface);
             border: 1px solid var(--border);
             padding: 20px;
-            transition: background-color .35s, border-color .3s;
             transition: border-color .3s;
+            text-decoration: none;
+            display: block;
+            color: inherit;
         }
 
         .stat:first-child {
@@ -1335,6 +1394,8 @@
             font-size: 11.5px;
             color: var(--text2);
             transition: border-color .2s, color .2s, transform .2s var(--spring), box-shadow .3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .csoc:hover {
@@ -1499,6 +1560,179 @@
         .d4 {
             transition-delay: .4s;
         }
+
+        /* ── FX: PAGE LOADER ───────────────────────────────────────
+           All decorative/enhancement elements share the `fx-` prefix
+           so they read as one system (fx-loader, fx-glow, fx-particles). */
+        .fx-loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 22px;
+            transition: transform .8s var(--ease) .05s, visibility .8s .05s;
+        }
+        .fx-loader.gone {
+            transform: translateY(-101%);
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .fx-loader-mark {
+            position: relative;
+            width: 72px;
+            height: 72px;
+        }
+        .fx-loader-frame {
+            stroke-dasharray: 248;
+            stroke-dashoffset: 248;
+            animation: fx-draw 1.9s var(--ease) .1s forwards;
+        }
+        .fx-loader-letter {
+            opacity: 0;
+            animation: fsu .5s var(--ease) .95s forwards;
+        }
+        @keyframes fx-draw { to { stroke-dashoffset: 0; } }
+        .fx-loader-pct {
+            font-family: var(--fm);
+            font-size: 11px;
+            letter-spacing: .12em;
+            color: var(--text2);
+            font-variant-numeric: tabular-nums;
+            min-width: 34px;
+            text-align: center;
+        }
+        .fx-loader-pct span { color: var(--accent); }
+        .fx-loader-status {
+            font-family: var(--fm);
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--text3);
+            height: 14px;
+            opacity: 0;
+            animation: fsu .5s var(--ease) 1.1s forwards;
+        }
+        .fx-loader-slow {
+            position: absolute;
+            bottom: 48px;
+            left: 50%;
+            transform: translate(-50%, 8px);
+            font-family: var(--fm);
+            font-size: 11px;
+            letter-spacing: .04em;
+            color: var(--text2);
+            text-align: center;
+            max-width: 280px;
+            opacity: 0;
+            transition: opacity .5s var(--ease), transform .5s var(--ease);
+        }
+        .fx-loader-slow.show { opacity: 1; transform: translate(-50%, 0); }
+
+        /* ── TYPEWRITER ──────────────────────────────────────────── */
+        .fx-cursor {
+            display: inline-block;
+            width: 2px;
+            height: .82em;
+            background: var(--accent);
+            vertical-align: middle;
+            margin-left: 3px;
+            border-radius: 1px;
+            animation: fx-blink 1s step-end infinite;
+        }
+        @keyframes fx-blink { 50% { opacity: 0 } }
+
+        /* ── FX: AMBIENT PARTICLES ─────────────────────────────────── */
+        .fx-particles { position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .5; }
+
+        /* ── FX: MOUSE GLOW ────────────────────────────────────────── */
+        .fx-glow {
+            position: fixed;
+            width: 700px;
+            height: 700px;
+            pointer-events: none;
+            z-index: 1;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,230,190,.035) 0%, transparent 65%);
+            transform: translate(-50%, -50%);
+            will-change: transform;
+            top: 0;
+            left: 0;
+        }
+        [data-theme="light"] .fx-glow {
+            background: radial-gradient(circle, rgba(13,148,136,.05) 0%, transparent 65%);
+        }
+
+        /* Respect reduced motion & low-power/slow-network mode */
+        .fx-lite .fx-particles,
+        .fx-lite .fx-glow { display: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .fx-particles, .fx-glow { display: none; }
+            .sd-arrow, .mq-track { animation: none !important; }
+        }
+
+        /* ── FX: CLICK RIPPLE ─────────────────────────────────────────
+           Shared feedback for every clickable button/pill (btn-p, btn-g,
+           csoc, nav-cta) — one class, applied consistently everywhere. */
+        .fx-ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: currentColor;
+            opacity: .35;
+            transform: scale(0);
+            animation: fx-ripple-out .55s ease-out forwards;
+            pointer-events: none;
+        }
+        @keyframes fx-ripple-out {
+            to { transform: scale(1); opacity: 0; }
+        }
+
+        /* ── HERO CARD LINKS ─────────────────────────────────────── */
+        a.hcard { display: flex; text-decoration: none; color: inherit; }
+        a.hcard:hover { border-color: var(--glow); }
+
+        /* ── SCROLLDOWN PULSE ────────────────────────────────────── */
+        .sd-arrow { animation: bounce 2s ease-in-out infinite, sd-pulse 2.4s ease-in-out infinite; }
+        @keyframes sd-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0,230,190,.3); }
+            55% { box-shadow: 0 0 0 9px rgba(0,230,190,0); }
+        }
+
+        /* ── INLINE HIGHLIGHT LINKS ──────────────────────────────── */
+        .hl {
+            color: var(--accent);
+            border-bottom: 1px dashed rgba(0,230,190,.45);
+            transition: border-color .2s, opacity .2s;
+        }
+        .hl:hover { border-color: var(--accent); opacity: .78; }
+
+        /* ── COUNTER ANIMATION ───────────────────────────────────── */
+        .stat-n { will-change: contents; }
+
+        /* ── LEFT/RIGHT REVEAL ───────────────────────────────────── */
+        .rev-l {
+            opacity: 0;
+            transform: translateX(-28px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease);
+        }
+        .rev-r {
+            opacity: 0;
+            transform: translateX(28px);
+            transition: opacity .7s var(--ease), transform .7s var(--ease);
+        }
+        .rev-l.in, .rev-r.in { opacity: 1; transform: translateX(0); }
+
+        /* ── HERO NAME SHIMMER ───────────────────────────────────── */
+        .hero-name {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* ── SECTION SCROLL TINT ─────────────────────────────────── */
+        body { transition: background-color .8s, color .35s; }
 
         /* ── SCROLLBAR ──────────────────────────────────────────── */
         ::-webkit-scrollbar {
@@ -1797,6 +2031,22 @@
 
 <body>
 
+    <!-- Page Loader -->
+    <div id="loader" class="fx-loader" role="status" aria-label="Loading">
+        <svg class="fx-loader-mark" viewBox="0 0 64 64" width="64" height="64" fill="none" aria-hidden="true">
+            <rect class="fx-loader-frame" x="2" y="2" width="60" height="60" rx="14"
+                stroke="var(--accent)" stroke-width="2" />
+            <text class="fx-loader-letter" x="32" y="41" text-anchor="middle"
+                font-family="Syne, sans-serif" font-weight="800" font-size="26" fill="var(--accent)">P</text>
+        </svg>
+        <div class="fx-loader-pct"><span id="loader-pct">0</span>%</div>
+        <div class="fx-loader-status" id="loader-status">Initializing</div>
+        <div class="fx-loader-slow" id="loader-slow" aria-live="polite">Taking a little longer than usual — thanks for sticking around!</div>
+    </div>
+
+    <!-- Mouse-follow ambient glow -->
+    <div id="mglow" class="fx-glow"></div>
+
     <div id="cur"></div>
     <div id="cur-ring"></div>
     <div id="sprog"></div>
@@ -1808,6 +2058,7 @@
         <a href="#achievements" onclick="closeMnav()">Achievements</a>
         <a href="#projects" onclick="closeMnav()">Projects</a>
         <a href="#books" onclick="closeMnav()">Books</a>
+        <a href="https://tapariapurv.beehiiv.com" target="_blank" onclick="closeMnav()">Blog</a>
         <a href="#contact" onclick="closeMnav()">Contact</a>
         <button id="theme-toggle-mobile" aria-label="Toggle Theme" style="display:flex; align-items:center; gap:12px; margin-top:10px; color:var(--text2); transition:color .2s; font-family:var(--ff); font-size:24px; font-weight:700; background:none; border:none; cursor:none;">
             <span class="theme-label">Light Mode</span>
@@ -1824,6 +2075,7 @@
             <a href="#achievements">Achievements</a>
             <a href="#projects">Projects</a>
             <a href="#books">Books</a>
+            <a href="https://tapariapurv.beehiiv.com" target="_blank">Blog</a>
             <div style="display: flex; align-items: center; gap: 16px;">
                 <a href="#contact" class="nav-cta">Get In Touch</a>
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
@@ -1839,20 +2091,23 @@
 
     <!-- ── HERO ── -->
     <section id="hero">
+        <canvas id="ptcl" class="fx-particles" aria-hidden="true"></canvas>
         <div class="hero-l">
             <h1 class="hero-name">
                 PURV<br /><em>TAPARIA</em>
             </h1>
 
-            <p class="hero-sub">Student | Coder | Creative Writer</p>
+            <p class="hero-sub"><span id="tw-word">Student</span><span class="fx-cursor"></span></p>
 
             <p class="hero-desc">
-                Hi! I am <strong>Purv Taparia</strong>, a student from Class 4 residing in
-                <strong>Mumbai, India</strong>. I built this portfolio from the ground up to
-                showcase my creative and technical abilities. I have achieved
-                <strong>International Rank 1</strong> in the International English Olympiad twice,
-                placed in national-level roller skating competitions, and have many exciting
-                projects under my belt.
+                Hi! I am <strong>Purv Taparia</strong>, a student from Class 4 in
+                <strong>Mumbai, India</strong>. I am a
+                <a href="#books" class="hl"><strong>5× published author</strong></a>
+                on Amazon and Bribooks, and write a
+                <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hl"><strong>newsletter on Beehiiv</strong></a>.
+                I've won <a href="#achievements" class="hl"><strong>International Rank 1</strong></a>
+                in the English Olympiad twice and placed at
+                <a href="#achievements" class="hl"><strong>national-level roller skating</strong></a> competitions.
             </p>
 
             <div class="hero-ctas">
@@ -1885,6 +2140,11 @@
                             d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                     </svg>
                 </a>
+                <a href="https://tapariapurv.beehiiv.com" target="_blank" aria-label="Newsletter" class="s-em" style="--hover-c:var(--gold);--hover-bg:var(--gdim);--hover-shadow:var(--aglow)">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                    </svg>
+                </a>
                 <a href="mailto:tapariapurv+portfolio@gmail.com" aria-label="Email" class="s-em">
                     <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -1904,50 +2164,59 @@
         <div class="hero-r">
             <div class="hero-orb"></div>
 
-            <div class="hcard tc">
+            <a href="#achievements" class="hcard tc">
                 <div class="tc-shine"></div>
                 <div class="hcard-ico">🏆</div>
                 <div>
                     <div class="hcard-lbl">Top Achievement</div>
                     <div class="hcard-val"><span>International Rank 1</span> — IEO Olympiad</div>
                 </div>
-            </div>
+            </a>
 
-            <div class="hcard tc">
+            <a href="#books" class="hcard tc">
                 <div class="tc-shine"></div>
                 <div class="hcard-ico">📚</div>
                 <div>
                     <div class="hcard-lbl">Published Author</div>
-                    <div class="hcard-val"><span>5 books</span> published</div>
+                    <div class="hcard-val"><span>5 books</span> on Amazon &amp; Bribooks</div>
                 </div>
-            </div>
+            </a>
 
-            <div class="hcard tc">
+            <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hcard tc">
+                <div class="tc-shine"></div>
+                <div class="hcard-ico">✍️</div>
+                <div>
+                    <div class="hcard-lbl">Newsletter</div>
+                    <div class="hcard-val"><span>Blogger</span> on Beehiiv ↗</div>
+                </div>
+            </a>
+
+            <a href="#certifications" class="hcard tc">
                 <div class="tc-shine"></div>
                 <div class="hcard-ico">⚡</div>
                 <div>
                     <div class="hcard-lbl">Certifications</div>
                     <div class="hcard-val">Arduino <span>96%</span> · Claude 101</div>
                 </div>
-            </div>
+            </a>
 
-            <div class="hcard tc">
+            <a href="#projects" class="hcard tc">
                 <div class="tc-shine"></div>
                 <div class="hcard-ico">🤖</div>
                 <div>
                     <div class="hcard-lbl">Hardware Projects</div>
-                    <div class="hcard-val">Neo-Pixel Game · Air Quality Monitor</div>
+                    <div class="hcard-val">Neo-Pixel Game · Radar System</div>
                 </div>
-            </div>
+            </a>
 
-            <div class="hcard tc">
+            <a href="#achievements" class="hcard tc">
                 <div class="tc-shine"></div>
                 <div class="hcard-ico">🛼</div>
                 <div>
                     <div class="hcard-lbl">Athletics</div>
                     <div class="hcard-val">National-level <span>Roller Skating</span> competitor</div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <!-- Scroll Down -->
@@ -2003,38 +2272,31 @@
             <div class="about-grid">
                 <div>
                     <div class="slabel rev">About Me</div>
-                    <h2 class="about-hl rev d1">Student.<br />Coder.<br /><em>Creative Writer.</em></h2>
+                    <h2 class="about-hl rev d1">Student.<br />Author.<br /><em>Coder &amp; Blogger.</em></h2>
                     <div class="about-body rev d2">
-                        <p>Hi! I am <strong>Purv Taparia</strong>, a student from Class 4 residing in <strong>Mumbai,
+                        <p>Hi! I am <strong>Purv Taparia</strong>, a student from Class 4 in <strong>Mumbai,
                                 India</strong>. I built this portfolio from the ground up to showcase my creative and
                             technical abilities.</p>
-                        <p>I have many skills in the field of AI. I have used models like <strong>Veo 3.1</strong> to
-                            create production-class videos and <strong>Nano Banana Pro</strong> to create mesmerising
-                            images. I also use AI tools to boost productivity — from building Excel sheets and
-                            PowerPoint presentations to generating well-structured essays and creative content. I hold
-                            <strong>Anthropic's Claude 101 Certification</strong>.</p>
-                        <p>I can program in <strong>HTML, CSS, Python and C++</strong>. I am proficient in creative
-                            writing — descriptive stories, essays, and paragraphs. I am fluent in English with a strong
-                            vocabulary and grammar, and have <strong>published 5 books</strong> across Bribooks and
-                            Amazon.</p>
+                        <p>I have many skills in AI — using models like <strong>Veo 3.1</strong> and <strong>Nano Banana Pro</strong> for video and image creation, and AI tools for Excel, PowerPoint and writing. I hold <a href="assets/Claude 101 Certificate.pdf" target="_blank" class="hl"><strong>Anthropic's Claude 101 Certification</strong></a>.</p>
+                        <p>I program in <strong>HTML, CSS, Python and C++</strong> and build <a href="#projects" class="hl"><strong>real hardware projects</strong></a> with Arduino. I have <a href="#books" class="hl"><strong>published 5 books</strong></a> across Bribooks and Amazon, and write a <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hl"><strong>newsletter on Beehiiv</strong></a> sharing thoughts and updates.</p>
                     </div>
                     <div class="stats rev d3">
-                        <div class="stat">
+                        <a href="#achievements" class="stat">
                             <div class="stat-n">#1</div>
                             <div class="stat-l">International Rank</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-n">5</div>
+                        </a>
+                        <a href="#books" class="stat">
+                            <div class="stat-n" data-count="5">5</div>
                             <div class="stat-l">Books Published</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-n">96%</div>
+                        </a>
+                        <a href="assets/Arduino Junior Certification.pdf" target="_blank" class="stat">
+                            <div class="stat-n" data-count="96" data-suffix="%">96%</div>
                             <div class="stat-l">Arduino Score</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-n">Rs.50K</div>
+                        </a>
+                        <a href="#achievements" class="stat">
+                            <div class="stat-n">₹50K</div>
                             <div class="stat-l">Prize Won (IEO)</div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
@@ -2330,8 +2592,7 @@
                 </div>
             </div>
             <div class="books-intro rev d2">
-                <p>I have published 5 books across Bribooks and Amazon, and achieved International Rank 1 in the Science
-                    Olympiad Foundation's International English Olympiad.</p>
+                <p>I am a <strong style="color:var(--text)">published author</strong> with 5 books across Bribooks and Amazon — covering fiction, adventure, and finance for young readers. Writing is a core part of who I am, alongside my technical work. I also publish a <a href="https://tapariapurv.beehiiv.com" target="_blank" style="color:var(--accent)">newsletter on Beehiiv →</a></p>
             </div>
             <div class="books-grid">
 
@@ -2501,6 +2762,10 @@
                         </svg>
                         YouTube
                     </a>
+                    <a href="https://tapariapurv.beehiiv.com" class="csoc" target="_blank" style="--hover-border:var(--g-border);--hover-color:var(--gold)" onmouseenter="this.style.borderColor='var(--g-border)';this.style.color='var(--gold)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.borderColor='';this.style.color='';this.style.transform=''">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                        Newsletter
+                    </a>
                 </div>
             </div>
         </div>
@@ -2584,6 +2849,222 @@
         function toggleMnav() { mnav.classList.toggle('open'); }
         function closeMnav() { mnav.classList.remove('open'); }
 
+        /* ── Performance Mode Detection ───────────────────────────────
+           Skip decorative canvas/glow work entirely on slow connections,
+           data-saver mode, or when the user asked for reduced motion. */
+        const conn = navigator.connection || navigator.webkitConnection || navigator.mozConnection;
+        const fxLite = matchMedia('(prefers-reduced-motion: reduce)').matches
+            || (conn && (conn.saveData || /2g/.test(conn.effectiveType || '')));
+        if (fxLite) document.body.classList.add('fx-lite');
+
+        /* ── Loader ──────────────────────────────────────────────────
+           Deliberately kept on screen for a minimum "fake lag" duration so
+           it reads as a real loading sequence rather than a flash, and a
+           friendly message shows up if things are genuinely slow. */
+        const loader = document.getElementById('loader');
+        const pctEl = document.getElementById('loader-pct');
+        const statusEl = document.getElementById('loader-status');
+        const slowEl = document.getElementById('loader-slow');
+        (function () {
+            const MIN_MS = fxLite ? 900 : 2800;   // fake lag floor
+            const SLOW_MS = 5000;                  // show reassurance message
+            const MAX_MS = 9000;                   // hard safety cap — never trust a single event to unblock the UI
+            const PHRASES = ['Initializing', 'Loading assets', 'Preparing portfolio', 'Almost ready'];
+            const t0 = performance.now();
+            let pct = 0, phraseI = 0, pageLoaded = false, slowShown = false, stallUntil = 0;
+
+            window.addEventListener('load', () => { pageLoaded = true; });
+            // Belt-and-suspenders: some environments fire 'load' late or never
+            // (e.g. a hung third-party script), so also poll readyState directly.
+            const readyPoll = setInterval(() => {
+                if (document.readyState === 'complete') { pageLoaded = true; clearInterval(readyPoll); }
+            }, 200);
+
+            const phraseTimer = statusEl ? setInterval(() => {
+                phraseI = (phraseI + 1) % PHRASES.length;
+                statusEl.textContent = PHRASES[phraseI];
+            }, 700) : null;
+
+            function tick(now) {
+                const elapsed = now - t0;
+
+                if (!slowShown && elapsed > SLOW_MS && slowEl) {
+                    slowShown = true;
+                    slowEl.classList.add('show');
+                }
+
+                // Small random "network jitter" stalls so the fill doesn't feel robotic.
+                if (!fxLite && now >= stallUntil && Math.random() < 0.035) {
+                    stallUntil = now + 150 + Math.random() * 320;
+                }
+                const stalled = now < stallUntil;
+
+                const doneWaiting = (pageLoaded && elapsed >= MIN_MS) || elapsed >= MAX_MS;
+                const target = doneWaiting ? 100 : Math.min(96, (elapsed / (MIN_MS * 1.15)) * 100);
+                if (!stalled) pct += (target - pct) * .1;
+                pctEl.textContent = Math.round(pct);
+
+                if (doneWaiting && pct > 99) {
+                    pctEl.textContent = 100;
+                    clearInterval(readyPoll);
+                    if (phraseTimer) clearInterval(phraseTimer);
+                    if (statusEl) statusEl.textContent = 'Ready';
+                    setTimeout(() => loader.classList.add('gone'), 420);
+                    return;
+                }
+                requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        })();
+
+        /* ── Mouse Glow + Hero Orb Parallax (shared, rAF-throttled) ──── */
+        if (!fxLite) {
+            const mg = document.getElementById('mglow');
+            const orb = document.querySelector('.hero-orb');
+            let mx = innerWidth / 2, my = innerHeight / 2, glowQueued = false;
+            document.addEventListener('mousemove', e => {
+                mx = e.clientX; my = e.clientY;
+                if (glowQueued) return;
+                glowQueued = true;
+                requestAnimationFrame(() => {
+                    mg.style.transform = `translate(${mx - 350}px, ${my - 350}px)`;
+                    if (orb) {
+                        const nx = (mx / innerWidth  - .5) * 28;
+                        const ny = (my / innerHeight - .5) * 18;
+                        orb.style.transform = `translate(${nx}px,${ny}px)`;
+                    }
+                    glowQueued = false;
+                });
+            }, { passive: true });
+        }
+
+        /* ── Ambient Particles (idle-scheduled, skipped in fx-lite) ──── */
+        if (!fxLite) {
+            const startParticles = () => {
+                const cv = document.getElementById('ptcl');
+                if (!cv) return;
+                const cx = cv.getContext('2d');
+                let W, H;
+                function rsz() { W = cv.width = cv.offsetWidth; H = cv.height = cv.offsetHeight; }
+                rsz();
+                new ResizeObserver(rsz).observe(cv.parentElement);
+                const dots = Array.from({ length: 34 }, () => ({
+                    x: Math.random(), y: Math.random(),
+                    r: Math.random() * 1.4 + .4,
+                    dx: (Math.random() - .5) * .00025,
+                    dy: (Math.random() - .5) * .00025,
+                    o: Math.random() * .45 + .15
+                }));
+                function draw() {
+                    cx.clearRect(0, 0, W, H);
+                    const lt = document.documentElement.getAttribute('data-theme') === 'light';
+                    const col = lt ? '13,148,136' : '0,230,190';
+                    dots.forEach(d => {
+                        d.x = (d.x + d.dx + 1) % 1;
+                        d.y = (d.y + d.dy + 1) % 1;
+                        cx.beginPath();
+                        cx.arc(d.x * W, d.y * H, d.r, 0, Math.PI * 2);
+                        cx.fillStyle = `rgba(${col},${d.o})`;
+                        cx.fill();
+                    });
+                    requestAnimationFrame(draw);
+                }
+                draw();
+            };
+            ('requestIdleCallback' in window) ? requestIdleCallback(startParticles, { timeout: 1500 }) : setTimeout(startParticles, 200);
+        }
+
+        /* ── Typewriter ─────────────────────────────────────────────── */
+        (function () {
+            const el = document.getElementById('tw-word');
+            if (!el) return;
+            if (fxLite) { el.textContent = 'Student · Author · Coder · Blogger'; return; }
+            const words = ['Student', 'Author', 'Coder', 'Blogger', 'Maker'];
+            let wi = 0, ci = 0, del = false;
+            function step() {
+                const w = words[wi];
+                if (!del) {
+                    el.textContent = w.slice(0, ++ci);
+                    if (ci === w.length) { del = true; setTimeout(step, 1500); return; }
+                    setTimeout(step, 85);
+                } else {
+                    el.textContent = w.slice(0, --ci);
+                    if (ci === 0) { del = false; wi = (wi + 1) % words.length; setTimeout(step, 280); return; }
+                    setTimeout(step, 42);
+                }
+            }
+            step();
+        })();
+
+        /* ── Counter Animation ──────────────────────────────────────── */
+        (function () {
+            const cio = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (!e.isIntersecting) return;
+                    const el = e.target;
+                    const raw = parseFloat(el.dataset.count);
+                    const sfx = el.dataset.suffix || '';
+                    const dur = 1100, t0 = performance.now();
+                    function tick(now) {
+                        const p = Math.min((now - t0) / dur, 1);
+                        const ease = 1 - Math.pow(1 - p, 3);
+                        el.textContent = Math.round(ease * raw) + sfx;
+                        if (p < 1) requestAnimationFrame(tick);
+                    }
+                    requestAnimationFrame(tick);
+                    cio.unobserve(el);
+                });
+            }, { threshold: .6 });
+            document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+        })();
+
+        /* ── Magnetic Buttons ───────────────────────────────────────── */
+        if (!fxLite) {
+            document.querySelectorAll('.btn-p, .btn-g').forEach(btn => {
+                btn.addEventListener('mousemove', e => {
+                    const r = btn.getBoundingClientRect();
+                    const x = (e.clientX - r.left - r.width / 2) * .14;
+                    const y = (e.clientY - r.top  - r.height / 2) * .18;
+                    btn.style.transform = `translate(${x}px,${y}px) translateY(-2px)`;
+                });
+                btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+            });
+        }
+
+        /* ── Click Ripple (shared .fx-ripple feedback on every button/pill) ── */
+        document.querySelectorAll('.btn-p, .btn-g, .csoc, .nav-cta').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const r = btn.getBoundingClientRect();
+                const size = Math.max(r.width, r.height) * 1.8;
+                const ripple = document.createElement('span');
+                ripple.className = 'fx-ripple';
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - r.left - size / 2) + 'px';
+                ripple.style.top  = (e.clientY - r.top  - size / 2) + 'px';
+                btn.appendChild(ripple);
+                ripple.addEventListener('animationend', () => ripple.remove());
+            });
+        });
+
+        /* ── Scroll-Synced Active Nav Link ────────────────────────────
+           Highlights the current section in the nav as you scroll — the
+           in-flow replacement for the standalone dot-nav. */
+        (function () {
+            const navLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+            const sections = navLinks
+                .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+                .filter(Boolean);
+            if (!sections.length) return;
+            function updateActive() {
+                const sy = window.scrollY + window.innerHeight * .35;
+                let current = null;
+                sections.forEach(sec => { if (sec.offsetTop <= sy) current = sec; });
+                navLinks.forEach(a => a.classList.toggle('fx-active', !!current && a.getAttribute('href') === '#' + current.id));
+            }
+            window.addEventListener('scroll', updateActive, { passive: true });
+            updateActive();
+        })();
+
         /* ── Theme Toggle ──────────────────────────────────────────── */
         const themeBtn = document.getElementById('theme-toggle');
         const themeBtnMobile = document.getElementById('theme-toggle-mobile');
@@ -2611,193 +3092,6 @@
             }
         });
     </script>
-      <div class="bk-card tc rev">
-        <div class="tc-shine"></div>
-        <div class="bk-cover">🏙️</div>
-        <div class="bk-body">
-          <div class="bk-title">Dubai and a Futuristic City</div>
-          <div class="bk-desc">This book has 2 sections: the first is about when me and my friends get teleported to Dubai while the second section is about being teleported to a futuristic city alone.</div>
-          <a href="https://www.bribooks.com/bookstore/dubai-and-a-futuristic-city" class="bk-link" target="_blank">
-            Read on Bribooks →
-            <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="bk-card tc rev d1">
-        <div class="tc-shine"></div>
-        <div class="bk-cover">🖥️</div>
-        <div class="bk-body">
-          <div class="bk-title">The Tour to DigiDream</div>
-          <div class="bk-desc">An educational book that teaches readers about devices such as air conditioners, smartphones, and more.</div>
-          <a href="https://bribooks.com/bookstore/the-tour-to-digidream-by-purv-taparia" class="bk-link" target="_blank">
-            Read on Bribooks →
-            <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="bk-card tc rev d2">
-        <div class="tc-shine"></div>
-        <div class="bk-cover">🎪</div>
-        <div class="bk-body">
-          <div class="bk-title">Five Stories by Purv Taparia</div>
-          <div class="bk-desc">Includes five stories written by me. Some are about beaches, a picnic, a magical carpet, etc.</div>
-          <a href="https://www.bribooks.com/bookstore/five-stories-by-purv-taparia" class="bk-link" target="_blank">
-            Read on Bribooks →
-            <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="bk-card tc rev d3">
-        <div class="tc-shine"></div>
-        <div class="bk-cover">🎓</div>
-        <div class="bk-body">
-          <div class="bk-title">Graduation Day</div>
-          <div class="bk-desc">My first book. It is about a graduation day of a person who happens to win student of the year too.</div>
-          <a href="https://www.bribooks.com/bookstore/graduation-day-6479ed2fbb7fb/" class="bk-link" target="_blank">
-            Read on Bribooks →
-            <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><path d="M1 8L8 1M8 1H3M8 1v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap">
-    <div class="contact-in">
-      <div class="slabel rev" style="justify-content:center">Get In Touch</div>
-      <h2 class="contact-hl rev d1">Feel free to reach out<br/>for collaborations or<br/><em>just to say hi!</em></h2>
-      <p class="contact-sub rev d2">I am open to collaborations, projects, and conversations. Reach out anytime.</p>
-      <div class="contact-links rev d3">
-        <a href="mailto:tapariapurv+portfolio@gmail.com?subject=Reaching%20Out&body=Hi%20Purv%2C%0A%0AI%20found%20you%20on%20your%20portfolio%20website%20and%20I%20would%20like%20to%20talk%20to%20you" class="btn-p">
-          Email Me
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5h9M6.5 2l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="https://github.com/tapariapurv" class="csoc s-gh" target="_blank">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-          GitHub
-        </a>
-        <a href="https://www.linkedin.com/in/purv-taparia/" class="csoc s-li" target="_blank">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://youtube.com/@purvtaparia" class="csoc s-yt" target="_blank">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          YouTube
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot-copy">© 2026 <span>Purv Taparia</span>. All rights reserved.</div>
-  <a href="https://tapariapurv.github.io/old-portfolio" class="foot-old" target="_blank">
-    View old portfolio
-    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
-</footer>
-
-<script>
-  /* ── Custom Cursor ─────────────────────────────────────────── */
-  const cur = document.getElementById('cur');
-  const ring = document.getElementById('cur-ring');
-  let cx=0,cy=0,rx=0,ry=0;
-  document.addEventListener('mousemove', e => {
-    cx=e.clientX; cy=e.clientY;
-    cur.style.left=cx+'px'; cur.style.top=cy+'px';
-  });
-  (function tick(){
-    rx+=(cx-rx)*.12; ry+=(cy-ry)*.12;
-    ring.style.left=rx+'px'; ring.style.top=ry+'px';
-    requestAnimationFrame(tick);
-  })();
-  document.querySelectorAll('a,button,.chip,.tc,.stat').forEach(el=>{
-    el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
-    el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
-  });
-
-  /* ── 3D Tilt ───────────────────────────────────────────────── */
-  const MAX=11, SCALE=1.028, GSTR=0.16;
-  document.querySelectorAll('.tc').forEach(card=>{
-    const shine=card.querySelector('.tc-shine');
-    card.addEventListener('mousemove',e=>{
-      const r=card.getBoundingClientRect();
-      const x=e.clientX-r.left, y=e.clientY-r.top;
-      const nx=(x-r.width/2)/(r.width/2);
-      const ny=(y-r.height/2)/(r.height/2);
-      card.style.transform=`perspective(800px) rotateX(${-ny*MAX}deg) rotateY(${nx*MAX}deg) scale(${SCALE})`;
-      card.style.transition='transform .07s linear,box-shadow .35s,border-color .35s';
-      if(shine){
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-        const glowColor = isLight ? `rgba(13, 148, 136, ${GSTR})` : `rgba(0, 230, 190, ${GSTR})`;
-        shine.style.background=`radial-gradient(circle at ${(x/r.width*100).toFixed(1)}% ${(y/r.height*100).toFixed(1)}%, ${glowColor} 0%, transparent 65%)`;
-        shine.style.opacity='1';
-      }
-    });
-    card.addEventListener('mouseleave',()=>{
-      card.style.transform='perspective(800px) rotateX(0) rotateY(0) scale(1)';
-      card.style.transition='transform .5s cubic-bezier(.34,1.56,.64,1),box-shadow .35s,border-color .35s';
-      if(shine) shine.style.opacity='0';
-    });
-  });
-
-  /* ── Scroll events ─────────────────────────────────────────── */
-  const sprog=document.getElementById('sprog');
-  const nav=document.getElementById('nav');
-  const btt=document.getElementById('btt');
-  window.addEventListener('scroll',()=>{
-    const s=window.scrollY, tot=document.body.scrollHeight-window.innerHeight;
-    sprog.style.width=(s/tot*100)+'%';
-    nav.classList.toggle('stuck', s>40);
-    btt.classList.toggle('on', s > tot*.55);
-  },{passive:true});
-
-  /* ── Scroll Reveal ─────────────────────────────────────────── */
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  },{threshold:.1,rootMargin:'0px 0px -36px 0px'});
-  document.querySelectorAll('.rev').forEach(el=>io.observe(el));
-
-  /* ── Mobile Nav ────────────────────────────────────────────── */
-  const mnav=document.getElementById('mnav');
-  function toggleMnav(){ mnav.classList.toggle('open'); }
-  function closeMnav(){ mnav.classList.remove('open'); }
-
-  /* ── Theme Toggle ──────────────────────────────────────────── */
-  const themeBtn2 = document.getElementById('theme-toggle');
-  const themeBtnMobile2 = document.getElementById('theme-toggle-mobile');
-  
-  function setTheme2(isLight) {
-      if (isLight) {
-          document.documentElement.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
-      } else {
-          document.documentElement.removeAttribute('data-theme');
-          localStorage.setItem('theme', 'dark');
-      }
-      document.querySelectorAll('.sun-icon').forEach(el => el.style.display = isLight ? 'none' : 'block');
-      document.querySelectorAll('.moon-icon').forEach(el => el.style.display = isLight ? 'block' : 'none');
-      document.querySelectorAll('.theme-label').forEach(el => el.textContent = isLight ? 'Dark Mode' : 'Light Mode');
-  }
-  const currentTheme2 = localStorage.getItem('theme') || 'dark';
-  setTheme2(currentTheme2 === 'light');
-  [themeBtn2, themeBtnMobile2].forEach(btn => {
-      if(btn) {
-          btn.addEventListener('click', () => {
-              const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-              setTheme2(!isLight);
-          });
-      }
-  });
-</script>
 </body>
 
 </html>

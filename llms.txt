@@ -1,0 +1,61 @@
+# Purv Taparia — Personal Portfolio
+
+> Purv Taparia is a student from Class 4 in Mumbai, India. He is a 5× published author, International Rank 1 English Olympiad winner, coder, newsletter blogger, and Arduino-certified maker.
+
+## About
+
+Purv Taparia (born ~2016, Mumbai, India) is a prodigious student with achievements spanning academic Olympiads, creative writing, hardware engineering, and software development.
+
+**Roles:** Student · Published Author · Developer · Newsletter Blogger · Roller Skater
+
+**Location:** Mumbai, India
+
+## Key Achievements
+
+- International Rank 1 — IEO English Olympiad, Grade 1
+- International Rank 1 — IEO English Olympiad, Grade 3 (40/40, won ₹50,000)
+- International Rank 2 — ICSO Cyber Olympiad, Grade 3 (39/40, won ₹8,333)
+- 94th All-India Rank — IPM Mathematics Scholarship (Grade 2)
+- 3rd Place — 3rd Mumbai Suburban Roller Athletics District Competition
+- 5th Place — Maharashtra State Roller Athletics Competition
+- 5th Place — National Roller Athletics Competition
+- Arduino Junior Certification — 96%
+- Anthropic Claude 101 Certification
+
+## Published Books (5 total)
+
+1. **10-Year-Old's Decode the Stock Market** — Amazon (B0H1YGCL2D)
+2. **Dubai and a Futuristic City** — Bribooks
+3. **The Tour to DigiDream** — Bribooks
+4. **Five Stories by Purv Taparia** — Bribooks
+5. **Graduation Day** — Bribooks (first book)
+
+## Newsletter / Blog
+
+Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
+
+## Technical Skills
+
+- Programming: HTML, CSS, Python, C++, JavaScript
+- Hardware: Arduino, NeoPixels, breadboards, sensors, radar systems
+- AI Tools: Claude/Anthropic, Veo 3.1, Nano Banana Pro, Prompt Engineering
+- Microsoft Office: Excel (formulas, macros), PowerPoint
+- Certifications: Arduino Junior (96%), Anthropic Claude 101
+
+## Projects
+
+- **Neo-Pixel Game** — 8×8 NeoPixel grid game (Arduino, C++) [Jan 2026]
+- **Air Quality Monitor** — Arduino-based AQM during Delhi smog crisis [Nov 2025]
+- **Radar System** — Arduino UNO radar with real-time detection [May 2026]
+- **Rapid Games** — Free online gaming platform (HTML/CSS/JS) [Oct 2025] — https://tapariapurv.github.io/rapidgames
+- **LiteWarden** — Chrome extension for local password management [Jan 2026]
+- **Antigravity Usage Monitor** — Analytics dashboard for Google Antigravity (Next.js, TypeScript) [Jun 2026]
+
+## Links
+
+- Portfolio: https://tapariapurv.github.io
+- GitHub: https://github.com/tapariapurv
+- LinkedIn: https://www.linkedin.com/in/purv-taparia/
+- YouTube: https://youtube.com/@decodewithpurv
+- Newsletter: https://tapariapurv.beehiiv.com
+- Email: tapariapurv+portfolio@gmail.com
