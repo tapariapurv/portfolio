@@ -33,11 +33,11 @@ Purv's grade, school, and other biographical facts are duplicated in multiple pl
 ## Freshness dates must be updated on every content change
 
 Whenever `index.html`, `privacy.html`, or `terms.html` content changes, update **every** date field before committing — these are deliberate SEO/GEO freshness signals, not incidental:
-- `index.html`: two `"dateModified"` fields in the JSON-LD blocks near the top of `<head>`, and the visible `<div class="freshness">...Last updated <time datetime="...">` in the About section.
+- `index.html`: the `<meta property="article:modified_time">` tag, two `"dateModified"` fields in the JSON-LD blocks near the top of `<head>`, the FAQ JSON-LD/visible-text answer to "Is this portfolio actively maintained?" (says "It was last updated on ..." in prose, two occurrences — schema copy and visible `<summary>/<p>` pair), and the visible `<div class="freshness">...Last updated <time datetime="...">` in the About section.
 - `privacy.html`: `<div class="updated">Last updated: ...</div>`.
 - `terms.html`: `<div class="updated">Last updated: ...</div>`.
 
-Grep for `Last updated\|dateModified` across `*.html` (excluding `old-site` if it's ever reintroduced) to catch all instances before every commit.
+Grep for `Last updated\|dateModified\|modified_time` across `*.html` (excluding `old-site` if it's ever reintroduced) to catch all instances before every commit — dates can be hardcoded in prose sentences, not just in date-labeled fields, so don't rely on grepping only structural markers.
 
 ## Design system
 
