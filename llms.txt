@@ -1,10 +1,10 @@
 # Purv Taparia — Personal Portfolio
 
-> Purv Taparia is a student from Class 4 in Mumbai, India. He is a 5× published author, International Rank 1 English Olympiad winner, coder, newsletter blogger, and Arduino-certified maker.
+> Purv Taparia is a student in Grade 5 at Chatrabhuj Narsee School, Mumbai, India. He is a 5× published author, International Rank 1 English Olympiad winner, coder, newsletter blogger, and Arduino-certified maker.
 
 ## About
 
-Purv Taparia (born ~2016, Mumbai, India) is a prodigious student with achievements spanning academic Olympiads, creative writing, hardware engineering, and software development.
+Purv Taparia (born ~2016, Mumbai, India) is a prodigious student with achievements spanning academic Olympiads, creative writing, hardware engineering, and software development. He studies at Chatrabhuj Narsee School (cns.ac.in), Mumbai.
 
 **Roles:** Student · Published Author · Developer · Newsletter Blogger · Roller Skater
 
