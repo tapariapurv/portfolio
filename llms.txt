@@ -50,6 +50,7 @@ Purv writes a newsletter on Beehiiv: https://tapariapurv.beehiiv.com
 - **Rapid Games** — Free online gaming platform (HTML/CSS/JS) [Oct 2025] — https://tapariapurv.github.io/rapidgames
 - **LiteWarden** — Chrome extension for local password management [Jan 2026]
 - **Antigravity Usage Monitor** — Analytics dashboard for Google Antigravity (Next.js, TypeScript) [Jun 2026]
+- **Logek** — Adaptive vocabulary learning app with spaced repetition and gamification (React, TypeScript, Firebase) [Aug 2026] — https://tapariapurv.github.io/Logek
 
 ## Links
 
