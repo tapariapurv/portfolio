@@ -22,7 +22,7 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="article:modified_time" content="2026-08-02" />
+    <meta property="article:modified_time" content="2026-08-11" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Purv Taparia | Student, Author & Developer" />
     <meta name="twitter:description" content="5x published author, International Rank 1 Olympiad winner, coder, and newsletter writer from Mumbai, India." />
@@ -90,7 +90,7 @@
       "inLanguage": "en-IN",
       "publisher": { "@id": "https://tapariapurv.github.io/#person" },
       "datePublished": "2025-03-17",
-      "dateModified": "2026-08-02"
+      "dateModified": "2026-08-11"
     }
     </script>
 
@@ -104,7 +104,7 @@
       "isPartOf": { "@id": "https://tapariapurv.github.io/#website" },
       "about": { "@id": "https://tapariapurv.github.io/#person" },
       "datePublished": "2025-03-17",
-      "dateModified": "2026-08-02",
+      "dateModified": "2026-08-11",
       "breadcrumb": { "@id": "https://tapariapurv.github.io/#breadcrumb" }
     }
     </script>
@@ -118,10 +118,11 @@
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tapariapurv.github.io/" },
         { "@type": "ListItem", "position": 2, "name": "About", "item": "https://tapariapurv.github.io/#about" },
         { "@type": "ListItem", "position": 3, "name": "Achievements", "item": "https://tapariapurv.github.io/#achievements" },
-        { "@type": "ListItem", "position": 4, "name": "Projects", "item": "https://tapariapurv.github.io/#projects" },
-        { "@type": "ListItem", "position": 5, "name": "Books", "item": "https://tapariapurv.github.io/#books" },
-        { "@type": "ListItem", "position": 6, "name": "FAQ", "item": "https://tapariapurv.github.io/#faq" },
-        { "@type": "ListItem", "position": 7, "name": "Contact", "item": "https://tapariapurv.github.io/#contact" }
+        { "@type": "ListItem", "position": 4, "name": "Certifications", "item": "https://tapariapurv.github.io/#certifications" },
+        { "@type": "ListItem", "position": 5, "name": "Projects", "item": "https://tapariapurv.github.io/#projects" },
+        { "@type": "ListItem", "position": 6, "name": "Books", "item": "https://tapariapurv.github.io/#books" },
+        { "@type": "ListItem", "position": 7, "name": "FAQ", "item": "https://tapariapurv.github.io/#faq" },
+        { "@type": "ListItem", "position": 8, "name": "Contact", "item": "https://tapariapurv.github.io/#contact" }
       ]
     }
     </script>
@@ -235,7 +236,7 @@
           "name": "Is this portfolio actively maintained?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 2 August 2026."
+            "text": "Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 11 August 2026."
           }
         }
       ]
@@ -1515,7 +1516,7 @@
 
         .cert-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 14px;
         }
 
@@ -1563,6 +1564,40 @@
 
         .cert-note strong {
             color: var(--gold);
+        }
+
+        .cert-body {
+            font-family: var(--ff);
+            font-size: 12.5px;
+            line-height: 1.55;
+            color: var(--text2);
+            margin-top: 8px;
+        }
+
+        .cert-body strong {
+            color: var(--gold);
+        }
+
+        .cert-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .cert-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: var(--fm);
+            font-size: 10.5px;
+            letter-spacing: .06em;
+            color: var(--accent);
+            transition: gap .2s var(--spring);
+        }
+
+        .cert-links a:hover {
+            gap: 9px;
         }
 
         /* ── RECOGNIZED BY / SOCIAL PROOF STRIP ────────────────────── */
@@ -2473,6 +2508,7 @@
         <a href="#hero" onclick="closeMnav()">Home</a>
         <a href="#about" onclick="closeMnav()">About</a>
         <a href="#achievements" onclick="closeMnav()">Achievements</a>
+        <a href="#certifications" onclick="closeMnav()">Certifications</a>
         <a href="#projects" onclick="closeMnav()">Projects</a>
         <a href="#books" onclick="closeMnav()">Books</a>
         <a href="#faq" onclick="closeMnav()">FAQ</a>
@@ -2491,6 +2527,7 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#achievements">Achievements</a>
+            <a href="#certifications">Certifications</a>
             <a href="#projects">Projects</a>
             <a href="#books">Books</a>
             <a href="#faq">FAQ</a>
@@ -2702,7 +2739,7 @@
                         <p>I have many skills in AI — using models like <strong>Veo 3.1</strong> and <strong>Nano Banana Pro</strong> for video and image creation, and AI tools for Excel, PowerPoint and writing. I hold <a href="assets/Claude 101 Certificate.pdf" target="_blank" class="hl"><strong>Anthropic's Claude 101 Certification</strong></a>.</p>
                         <p>I program in <strong>HTML, CSS, Python and C++</strong> and build <a href="#projects" class="hl"><strong>real hardware projects</strong></a> with Arduino. I have <a href="#books" class="hl"><strong>published 5 books</strong></a> across Bribooks and Amazon, and write a <a href="https://tapariapurv.beehiiv.com" target="_blank" class="hl"><strong>newsletter on Beehiiv</strong></a> sharing thoughts and updates.</p>
                         <p>This portfolio is a living document — I add new projects, achievements and books as I complete them, rather than letting it go stale.</p>
-                        <div class="freshness"><span class="dot"></span> Last updated <time datetime="2026-08-02">2 August 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></div>
+                        <div class="freshness"><span class="dot"></span> Last updated <time datetime="2026-08-11">11 August 2026</time> · Live since <time datetime="2025-03-17">March 2025</time></div>
                     </div>
                     <div class="stats rev d3">
                         <a href="#achievements" class="stat">
@@ -2772,7 +2809,7 @@
             <div class="sec-hdr">
                 <div>
                     <div class="slabel rev">Recognition</div>
-                    <h2 class="sec-title rev d1">Achievements &amp;<br />Certifications</h2>
+                    <h2 class="sec-title rev d1">Achievements</h2>
                 </div>
             </div>
             <div class="ach-grid">
@@ -2825,27 +2862,6 @@
                     </div>
                 </div>
 
-                <div class="tc ach-card-top rev d1">
-                    <div class="tc-shine"></div>
-                    <span class="ach-icon">⚡</span>
-                    <span class="ach-badge b-teal">Certification</span>
-                    <div class="ach-title">Arduino Junior Certification</div>
-                    <div class="ach-body">
-                        Passed the Arduino Junior Certification exam with <span class="hi t">96%</span>. Click <a href="assets/Arduino Junior Certification.pdf" target="_blank"><u>here</u></a> to view proof of my certification.
-                    </div>
-                </div>
-
-                <div class="tc ach-card-top rev d2">
-                    <div class="tc-shine"></div>
-                    <span class="ach-icon">🧠</span>
-                    <span class="ach-badge b-teal">Certification</span>
-                    <div class="ach-title">Claude 101 Certification</div>
-                    <div class="ach-body">
-                        Completed Anthropic Academy's Claude 101 Certification. Includes topics such as how to work with
-                        Claude, use Claude Projects, and boost productivity with Claude. Click <a href="assets/Claude 101 Certificate.pdf" target="_blank"><u>here</u></a> to view proof of my certification.
-                    </div>
-                </div>
-
             </div>
 
             <div class="recog-strip rev">
@@ -2856,6 +2872,90 @@
                     <span class="recog-pill">🥇 International English Olympiad (IEO)</span>
                     <span class="recog-pill">💻 International Cyber Olympiad (ICSO)</span>
                     <span class="recog-pill">📐 IPM Mathematics Scholarship</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+        <div class="wrap">
+            <div class="sec-hdr">
+                <div>
+                    <div class="slabel rev">Credentials</div>
+                    <h2 class="sec-title rev d1">Certifications</h2>
+                </div>
+            </div>
+            <div class="cert-row">
+                <div class="cert-card tc rev">
+                    <div class="tc-shine"></div>
+                    <div class="cert-ico">⚡</div>
+                    <div>
+                        <div class="cert-title">Arduino Junior Certification</div>
+                        <div class="cert-issuer">Arduino Official</div>
+                        <div class="cert-note">Passed with <strong>96%</strong></div>
+                        <div class="cert-body">Passed the Arduino Junior Certification exam with <strong>96%</strong>,
+                            covering electronics fundamentals, circuits, and programming microcontrollers with the
+                            Arduino platform.</div>
+                        <div class="cert-links">
+                            <a href="assets/Arduino Junior Certification.pdf" target="_blank">
+                                View Certificate →
+                                <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                                    <path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-card tc rev d1">
+                    <div class="tc-shine"></div>
+                    <div class="cert-ico">🧠</div>
+                    <div>
+                        <div class="cert-title">Claude 101 Certification</div>
+                        <div class="cert-issuer">Anthropic Academy</div>
+                        <div class="cert-note">Completed — Claude Projects, AI workflows, productivity</div>
+                        <div class="cert-body">Completed Anthropic Academy's Claude 101 Certification. Includes topics
+                            such as how to work with Claude, use Claude Projects, and boost productivity with
+                            Claude.</div>
+                        <div class="cert-links">
+                            <a href="assets/Claude 101 Certificate.pdf" target="_blank">
+                                View Certificate →
+                                <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                                    <path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-card tc rev d2">
+                    <div class="tc-shine"></div>
+                    <div class="cert-ico">🤖</div>
+                    <div>
+                        <div class="cert-title">Claude Code in Action Certification</div>
+                        <div class="cert-issuer">Anthropic Academy</div>
+                        <div class="cert-note">Completed with a perfect <strong>8/8</strong> quiz score</div>
+                        <div class="cert-body">Completed Anthropic Academy's Claude Code in Action course, scoring a
+                            perfect <strong>8/8</strong> on the quiz. Covers Claude Code, hooks, skills, commands, and
+                            the .claude directory.</div>
+                        <div class="cert-links">
+                            <a href="assets/Claude Code in Action Certificate.pdf" target="_blank">
+                                View Certificate →
+                                <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                                    <path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                            <a href="https://verify.skilljar.com/c/ghgqrf8euxh7" target="_blank">
+                                Verify →
+                                <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                                    <path d="M1 10L10 1M10 1H4M10 1v6" stroke="currentColor" stroke-width="1.3"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3041,12 +3141,28 @@
                     <div class="proj-visual">📚</div>
                 </div>
 
+                <div class="proj-card tc rev">
+                    <div class="tc-shine"></div>
+                    <div class="proj-meta">
+                        <span class="proj-num">08</span>
+                        <span class="proj-tag t-hw">⬡ Hardware</span>
+                    </div>
+                    <h3 class="proj-title">Market Alert Matrix</h3>
+                    <p class="proj-desc">A device with a 16-LED NeoPixel Ring, ESP8266 NodeMCU, piezo, and pushbutton in
+                        a 3D-printed case. It shows the market's live movement from the previous close, lighting one LED
+                        per 0.2% move, and sounds the piezo past 1% — silenced with a push of the button. — August 2026</p>
+                    <div class="proj-tech">
+                        <span class="tech">ESP8266</span><span class="tech">C++</span><span
+                            class="tech">NeoPixels</span><span class="tech">APIs</span>
+                    </div>
+                </div>
+
                 </div>
 
             </div>
             <div class="proj-more-cta">
                 <button id="proj-more-btn" class="btn-g" onclick="toggleProjMore()">
-                    <span id="proj-more-label">View All Projects (+4)</span>
+                    <span id="proj-more-label">View All Projects (+5)</span>
                     <svg id="proj-more-icon" width="11" height="11" viewBox="0 0 11 11" fill="none"
                         style="transition: transform .3s var(--spring)">
                         <path d="M2 4l3.5 3.5L9 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"
@@ -3212,38 +3328,6 @@
         </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
-    <section id="certifications">
-        <div class="wrap">
-            <div class="sec-hdr">
-                <div>
-                    <div class="slabel rev">Credentials</div>
-                    <h2 class="sec-title rev d1">Certifications</h2>
-                </div>
-            </div>
-            <div class="cert-row">
-                <div class="cert-card tc rev">
-                    <div class="tc-shine"></div>
-                    <div class="cert-ico">⚡</div>
-                    <div>
-                        <div class="cert-title">Arduino Junior Certification</div>
-                        <div class="cert-issuer">Arduino Official</div>
-                        <div class="cert-note">Passed with <strong>96%</strong></div>
-                    </div>
-                </div>
-                <div class="cert-card tc rev d1">
-                    <div class="tc-shine"></div>
-                    <div class="cert-ico">🧠</div>
-                    <div>
-                        <div class="cert-title">Claude 101 Certification</div>
-                        <div class="cert-issuer">Anthropic Academy</div>
-                        <div class="cert-note">Completed — Claude Projects, AI workflows, productivity</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ -->
     <section id="faq">
         <div class="wrap">
@@ -3284,7 +3368,7 @@
                 </details>
                 <details class="faq-item rev">
                     <summary>Is this portfolio actively maintained?</summary>
-                    <p>Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 2 August 2026.</p>
+                    <p>Yes. This portfolio was first published in March 2025 and is updated regularly as Purv completes new projects, achievements, and publications. It was last updated on 11 August 2026.</p>
                 </details>
             </div>
         </div>
@@ -3427,7 +3511,7 @@
             if (expanded) {
                 more.classList.remove('expanded');
                 more.classList.add('leaving');
-                label.textContent = 'View All Projects (+4)';
+                label.textContent = 'View All Projects (+5)';
                 icon.style.transform = 'rotate(0deg)';
                 more.addEventListener('animationend', function onEnd() {
                     more.classList.remove('leaving');
